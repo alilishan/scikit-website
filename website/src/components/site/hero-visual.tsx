@@ -134,40 +134,65 @@ function computeGeometry(w: number, h: number): Geometry {
   return { w, h, layers };
 }
 
-function FloatingLayer({
-  geo,
-  children,
-  delay,
-  floatDelay,
-  z,
-}: {
-  geo: LayerGeo;
-  children: React.ReactNode;
-  delay: number;
-  floatDelay: number;
-  z: number;
-}) {
+// Gentle float for each layer. Different distances and cycle lengths make the layers drift against
+// each other. Each layer's callout, connector and dot use the same settings so they move with it.
+type LayerKey = LayerSpec["key"];
+const ENTER: Record<LayerKey, number> = { design: 0.2, code: 0.35, deploy: 0.5 };
+const FLOAT: Record<LayerKey, { amp: number; duration: number }> = {
+  design: { amp: 14, duration: 5.5 },
+  code: { amp: 10, duration: 6.4 },
+  deploy: { amp: 8, duration: 4.8 },
+};
+
+/** Moves its children up and down in time with the given layer (starts once the entrance has finished). */
+function Bob({ layer, z, children }: { layer: LayerKey; z: number; children: React.ReactNode }) {
+  const f = FLOAT[layer];
+  return (
+    <motion.div
+      className="pointer-events-none absolute inset-0"
+      style={{ zIndex: z }}
+      animate={{ y: [0, -f.amp, 0] }}
+      transition={{ delay: ENTER[layer] + 0.8, duration: f.duration, repeat: Infinity, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function FloatingLayer({ layer, geo, children, z }: { layer: LayerKey; geo: LayerGeo; children: React.ReactNode; z: number }) {
   return (
     <motion.div
       className="pointer-events-none absolute inset-0"
       style={{ zIndex: z }}
       initial={{ opacity: 0, y: -36 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: ENTER[layer], duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <motion.div
-        className="absolute inset-0"
-        animate={{ y: [0, -6, 0] }}
-        transition={{ delay: delay + 0.8 + floatDelay, duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
+      <Bob layer={layer} z={0}>
         <div
           className="absolute top-0 left-0 origin-top-left"
           style={{ width: geo.width, height: geo.height, transform: geo.transform }}
         >
           {children}
         </div>
-      </motion.div>
+      </Bob>
     </motion.div>
+  );
+}
+
+/** Dotted connector and end dot for one layer, fading in after the layers land. */
+function Connector({ geo, d, dot }: { geo: Geometry; d: string; dot: Pt }) {
+  return (
+    <motion.svg
+      className="absolute inset-0 h-full w-full overflow-visible"
+      viewBox={`0 0 ${geo.w} ${geo.h}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.1, duration: 0.5 }}
+    >
+      <path d={d} fill="none" stroke="#FF6A2E" strokeWidth={1.25} strokeDasharray="3 3" />
+      <circle cx={dot[0]} cy={dot[1]} r={4} fill="#FF6A2E" />
+    </motion.svg>
   );
 }
 
@@ -191,7 +216,7 @@ function Callout({
   return (
     <motion.div
       ref={calloutRef}
-      className={cn("absolute z-40 flex items-start gap-[1.4cqw]", align === "right" && "right-0")}
+      className={cn("pointer-events-auto absolute flex items-start gap-[1.4cqw]", align === "right" && "right-0")}
       style={style}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
@@ -327,8 +352,9 @@ export function HeroVisual() {
       const box = el.getBoundingClientRect();
       if (!box.width) return;
       setGeo(computeGeometry(box.width, box.height));
-      const c = designCallout.current?.getBoundingClientRect();
-      if (c) setDesignAnchor([c.right - box.left, c.top - box.top + Math.min(14, c.height / 2)]);
+      // offset* ignores transforms, so the float/entrance animation can't skew the measurement.
+      const c = designCallout.current;
+      if (c) setDesignAnchor([c.offsetLeft + c.offsetWidth, c.offsetTop + Math.min(14, c.offsetHeight / 2)]);
     };
     update();
     const ro = new ResizeObserver(update);
@@ -368,65 +394,62 @@ export function HeroVisual() {
 
       {geo && g && (
         <>
-          <FloatingLayer geo={g.deploy} delay={0.5} floatDelay={1} z={10}>
+          <FloatingLayer layer="deploy" geo={g.deploy} z={10}>
             <DeployLayer />
           </FloatingLayer>
-          <FloatingLayer geo={g.code} delay={0.35} floatDelay={0.5} z={20}>
+          <FloatingLayer layer="code" geo={g.code} z={20}>
             <CodeLayer />
           </FloatingLayer>
-          <FloatingLayer geo={g.design} delay={0.2} floatDelay={0} z={30}>
+          <FloatingLayer layer="design" geo={g.design} z={30}>
             <DesignLayer />
           </FloatingLayer>
-
-          {/* Dotted connectors from each callout to its layer's edge */}
-          <motion.svg
-            className="pointer-events-none absolute inset-0 z-40 h-full w-full overflow-visible"
-            viewBox={`0 0 ${geo.w} ${geo.h}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.5 }}
-          >
-            <g fill="none" stroke="#FF6A2E" strokeWidth={1.25} strokeDasharray="3 3">
-              {designAnchor && (
-                <path d={`M${designAnchor[0] + 8} ${designAnchor[1]} H${g.design.top[0]} V${g.design.top[1] - 4}`} />
-              )}
-              <path d={`M${geo.w - 21 * cq} ${g.code.right[1]} H${g.code.right[0] + 6}`} />
-              <path d={`M${geo.w - 23 * cq} ${g.deploy.right[1]} H${g.deploy.right[0] + 6}`} />
-            </g>
-            <g fill="#FF6A2E">
-              <circle cx={g.design.top[0]} cy={g.design.top[1]} r={4} />
-              <circle cx={g.code.right[0]} cy={g.code.right[1]} r={4} />
-              <circle cx={g.deploy.right[0]} cy={g.deploy.right[1]} r={4} />
-            </g>
-          </motion.svg>
-
-          <Callout
-            icon={CodeXmlIcon}
-            title="Develop"
-            lines={["Clean code", "Fast performance", "Built to scale"]}
-            style={{ top: g.code.right[1] - 3.3 * cq }}
-            align="right"
-            delay={1.05}
-          />
-          <Callout
-            icon={DatabaseIcon}
-            title="Deploy"
-            lines={["Secure hosting", "Backups & monitoring", "Ongoing support"]}
-            style={{ top: g.deploy.right[1] - 3.3 * cq }}
-            align="right"
-            delay={1.2}
-          />
         </>
       )}
 
-      <Callout
-        calloutRef={designCallout}
-        icon={PencilIcon}
-        title="Design"
-        lines={["UI/UX design", "Modern & responsive", "Built for your brand"]}
-        style={{ top: 0, left: 0 }}
-        delay={0.9}
-      />
+      {/* Callouts and connectors, each floating in time with its layer (above all layers). */}
+      <Bob layer="design" z={40}>
+        {geo && g && designAnchor && (
+          <Connector
+            geo={geo}
+            d={`M${designAnchor[0] + 8} ${designAnchor[1]} H${g.design.top[0]} V${g.design.top[1] - 4}`}
+            dot={g.design.top}
+          />
+        )}
+        <Callout
+          calloutRef={designCallout}
+          icon={PencilIcon}
+          title="Design"
+          lines={["UI/UX design", "Modern & responsive", "Built for your brand"]}
+          style={{ top: 0, left: 0 }}
+          delay={0.9}
+        />
+      </Bob>
+      {geo && g && (
+        <>
+          <Bob layer="code" z={41}>
+            <Connector geo={geo} d={`M${geo.w - 21 * cq} ${g.code.right[1]} H${g.code.right[0] + 6}`} dot={g.code.right} />
+            <Callout
+              icon={CodeXmlIcon}
+              title="Develop"
+              lines={["Clean code", "Fast performance", "Built to scale"]}
+              style={{ top: g.code.right[1] - 3.3 * cq }}
+              align="right"
+              delay={1.05}
+            />
+          </Bob>
+          <Bob layer="deploy" z={42}>
+            <Connector geo={geo} d={`M${geo.w - 23 * cq} ${g.deploy.right[1]} H${g.deploy.right[0] + 6}`} dot={g.deploy.right} />
+            <Callout
+              icon={DatabaseIcon}
+              title="Deploy"
+              lines={["Secure hosting", "Backups & monitoring", "Ongoing support"]}
+              style={{ top: g.deploy.right[1] - 3.3 * cq }}
+              align="right"
+              delay={1.2}
+            />
+          </Bob>
+        </>
+      )}
     </div>
   );
 }
