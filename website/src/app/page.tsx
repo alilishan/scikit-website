@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
@@ -290,12 +291,16 @@ function WhyScikit() {
           <Reveal
             key={p.name}
             delay={stagger(i, 0.12, 0.1)}
-            className="grid grid-cols-[96px_minmax(0,1fr)] items-center gap-[22px] rounded-xl bg-white p-6 shadow-card"
+            className="grid grid-cols-[88px_minmax(0,1fr)] items-center gap-5 rounded-xl bg-white p-5 shadow-card sm:grid-cols-[104px_minmax(0,1fr)] sm:gap-[22px] sm:p-6"
           >
-            {/* TODO: replace with founder photo */}
-            <div className="flex aspect-square items-center justify-center rounded-[10px] bg-[repeating-linear-gradient(135deg,#ECEAE5_0_8px,#F4F2EE_8px_16px)]">
-              <span className="font-mono text-[9px] tracking-[0.1em] text-label">PHOTO</span>
-            </div>
+            <Image
+              src={p.photo}
+              alt={`${p.name}, co-founder of Scikit`}
+              width={208}
+              height={208}
+              sizes="104px"
+              className="aspect-square w-full rounded-[10px] object-cover"
+            />
             <div className="flex flex-col gap-1.5">
               <div className="text-xs tracking-[0.16em] text-orange uppercase">{p.area}</div>
               <h3 className="display m-0 text-[21px] tracking-[-0.02em]">{p.name}</h3>
