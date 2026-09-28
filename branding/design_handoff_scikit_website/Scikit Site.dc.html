@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="logos/favicon.svg">
+<style>html{scroll-behavior:smooth}body{margin:0;background:#FFFFFF;color:#111111;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}a{color:#111111;text-decoration:none}a:hover{color:#FF6A2E}input,textarea,select,button{font-family:inherit}</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#FFFFFF">
+
+  <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#111111;color:#F8F7F4;font-size:13px;text-align:center;padding:10px 20px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+      <span>Free website &amp; SEO audit for Australian small businesses.</span>
+      <a href="#contact" onClick="{{ goContact }}" style="color:#FF6A2E;font-weight:500">Get yours →</a>
+    </div>
+  </sc-if>
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #EEECE7">
+    <div style="max-width:1240px;margin:0 auto;padding:18px clamp(20px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:nowrap">
+      <a href="#home" onClick="{{ goHome }}" style="display:flex;flex-shrink:0"><img src="logos/scikit-wordmark.svg" alt="scikit" style="height:30px;width:auto"></a>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:24px;font-size:14px">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="8">
+            <a href="#" onClick="{{ n.go }}" style="color:{{ n.color }};font-weight:{{ n.weight }};white-space:nowrap">{{ n.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+        <a href="#contact" onClick="{{ goContact }}" style="font-size:14px;font-weight:500;padding:11px 20px;background:#111111;color:#F8F7F4;border-radius:999px;white-space:nowrap" style-hover="background:#FF6A2E;color:#FFFFFF">Start a project</a>
+        <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" style="padding:10px 16px;border:1px solid #D0CDC7;background:#FFFFFF;border-radius:999px;font-size:14px;font-weight:500;cursor:pointer;color:#111111">{{ menuLabel }}</button>
+        </sc-if>
+      </div>
+    </div>
+    <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+      <nav style="border-top:1px solid #EEECE7;background:#FFFFFF;padding:8px clamp(20px,4vw,40px) 20px;display:flex;flex-direction:column">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="8">
+          <a href="#" onClick="{{ n.go }}" style="color:{{ n.color }};font-weight:{{ n.weight }};font-size:17px;padding:14px 0;border-bottom:1px solid #F1EFEA">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+  </header>
+
+  <main style="flex:1">
+
+  <!-- HOME -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1240px;margin:0 auto;padding:72px 40px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:56px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B;display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:#FF6A2E"></span>WEB DESIGN &amp; SOFTWARE DEVELOPMENT · MELBOURNE</div>
+        <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(44px,5.6vw,76px);line-height:0.98;letter-spacing:-0.04em">Get Found.<br>Work Smarter.<br>Stay Secure<span style="color:#FF6A2E">.</span></h1>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#55534F;max-width:520px;text-wrap:pretty">Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the cloud systems that keep it all running, for Australian small businesses.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <a href="#contact" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 26px;background:#111111;color:#F8F7F4;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FF6A2E;color:#FFFFFF">Start a project <span style="color:#FF6A2E">→</span></a>
+          <a href="#offer" style="display:inline-flex;align-items:center;padding:15px 24px;border:1px solid #D0CDC7;border-radius:999px;font-size:15px;font-weight:500" style-hover="border-color:#111111;color:#111111">See our offer</a>
+        </div>
+      </div>
+      <div style="perspective:1600px;display:flex;justify-content:center;padding:10px 0 20px">
+        <div style="width:100%;max-width:580px;transform:rotateY(-18deg) rotateX(7deg) rotateZ(1.5deg);display:flex;flex-direction:column;align-items:center">
+          <div style="width:100%;aspect-ratio:16/10;background:#1A1A1A;border-radius:16px 16px 4px 4px;padding:3.2%;box-sizing:border-box;box-shadow:0 50px 70px -34px rgba(0,0,0,0.5),inset 0 0 0 1px #3A3A3A">
+            <div style="width:100%;height:100%;background:#F8F7F4;border-radius:3px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)">
+              <div style="padding:7% 8%;display:flex;flex-direction:column;gap:14%">
+                <img src="logos/scikit-wordmark.svg" alt="" style="width:30%;height:auto">
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(14px,2.1vw,28px);line-height:1;letter-spacing:-0.03em">Ideas into digital products.</div>
+                  <div style="height:3px;width:70%;background:#E6E4DF"></div>
+                  <div style="display:flex"><span style="padding:4px 10px;background:#FF6A2E;color:#FFFFFF;border-radius:999px;font-size:8px;font-weight:500">Let's talk →</span></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column">
+                <div style="display:flex;justify-content:flex-end;gap:8px;padding:7% 8% 4%;font-size:7px"><span>Work</span><span>Services</span><span>About</span></div>
+                <div style="flex:1;background:repeating-linear-gradient(135deg,#3A3A3A 0 8px,#444 8px 16px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:8px;letter-spacing:0.12em;color:#D0CDC7">PROJECT PHOTO</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="width:116%;height:14px;background:linear-gradient(180deg,#8E8E8E,#5A5A5A);border-radius:2px 2px 12px 12px;box-shadow:0 18px 30px -10px rgba(0,0,0,0.4);position:relative"><div style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:16%;height:5px;background:#6E6E6E;border-radius:0 0 6px 6px"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-top:1px solid #EEECE7;border-bottom:1px solid #EEECE7;background:#F8F7F4">
+      <div style="max-width:1240px;margin:0 auto;padding:24px 40px;display:flex;align-items:center;gap:20px 40px;flex-wrap:wrap">
+        <span style="font-size:12px;letter-spacing:0.18em;color:#6B6B6B">BUILT BY ENGINEERS CERTIFIED IN</span>
+        <div style="display:flex;gap:14px 32px;flex-wrap:wrap;font-size:15px;font-weight:500;color:#3A3A3A">
+          <span>AWS Solutions Architect</span><span>AWS Security Specialty</span><span>Microsoft</span><span>Cisco CCNA</span><span>VMware</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="offer" style="max-width:1240px;margin:0 auto;padding:96px 40px 48px">
+      <div style="background:#111111;color:#F8F7F4;border-radius:14px;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;position:relative;overflow:hidden">
+        <div style="position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,46,0.35),rgba(255,106,46,0) 70%)"></div>
+        <div style="display:flex;flex-direction:column;gap:22px;position:relative">
+          <div style="font-size:12px;letter-spacing:0.2em;color:#FF6A2E">FREE · NO OBLIGATION</div>
+          <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(34px,3.8vw,52px);line-height:1.02;letter-spacing:-0.035em">Free Website &amp; SEO Audit</h2>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#C9C7C2;max-width:460px;text-wrap:pretty">Send us your website and we'll show you exactly why it isn't bringing in more work. You get a short video walkthrough and a one-page report within 3 business days.</p>
+          <div style="display:flex"><a href="#contact" onClick="{{ goContact }}" style="display:inline-flex;align-items:center;gap:12px;padding:16px 26px;background:#FF6A2E;color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#F8F7F4;color:#111111">Get my free audit →</a></div>
+        </div>
+        <div style="display:flex;flex-direction:column;position:relative">
+          <sc-for list="{{ auditItems }}" as="a" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid #2E2E2E;font-size:16px;line-height:1.5">
+              <span style="font-size:12px;color:#FF6A2E;padding-top:3px">{{ a.num }}</span><span>{{ a.text }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px;margin:0 auto;padding:72px 40px 96px;display:flex;flex-direction:column;gap:44px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">SERVICES</div>
+          <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,46px);letter-spacing:-0.035em;line-height:1.04">One team, from website to cloud.</h2>
+        </div>
+        <a href="#services" onClick="{{ goServices }}" style="font-size:15px;font-weight:500;border-bottom:1px solid #D0CDC7;padding-bottom:3px">All services →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#E6E4DF;border:1px solid #E6E4DF;border-radius:12px;overflow:hidden">
+        <sc-for list="{{ coreServices }}" as="s" hint-placeholder-count="4">
+          <a href="#" onClick="{{ s.go }}" style="background:#FFFFFF;padding:32px 28px;display:flex;flex-direction:column;gap:44px;min-height:260px;color:#111111" style-hover="background:#F8F7F4;color:#111111">
+            <div style="display:flex;justify-content:space-between;font-size:12px;letter-spacing:0.16em;color:#9CA3AF"><span>{{ s.num }}</span><span style="width:8px;height:8px;border-radius:50%;background:#FF6A2E"></span></div>
+            <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.025em">{{ s.title }}</div>
+              <div style="font-size:15px;line-height:1.55;color:#55534F;text-wrap:pretty">{{ s.body }}</div>
+            </div>
+            <span style="font-size:14px;font-weight:500">Learn more →</span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:15px;color:#55534F">
+        <span style="font-weight:600;color:#111111">Also from the same team:</span>
+        <span>Mobile apps</span><span style="color:#D0CDC7">·</span><span>Microsoft 365</span><span style="color:#D0CDC7">·</span><span>Cyber security</span><span style="color:#D0CDC7">·</span><span>AI &amp; automation</span>
+      </div>
+    </section>
+
+    <section style="background:#F8F7F4;border-top:1px solid #EEECE7;border-bottom:1px solid #EEECE7">
+      <div style="max-width:1240px;margin:0 auto;padding:96px 40px;display:flex;flex-direction:column;gap:48px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">PROCESS</div>
+            <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,46px);letter-spacing:-0.035em;line-height:1.04">How We Work</h2>
+          </div>
+          <a href="#process" onClick="{{ goProcess }}" style="font-size:15px;font-weight:500;border-bottom:1px solid #D0CDC7;padding-bottom:3px">See full process →</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px">
+          <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:14px;padding-top:22px;border-top:2px solid #111111">
+              <span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:15px;color:#FF6A2E">{{ st.num }}</span>
+              <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em">{{ st.title }}</div>
+              <div style="font-size:15px;line-height:1.55;color:#55534F;text-wrap:pretty">{{ st.short }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:56px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">WHY SCIKIT</div>
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,46px);letter-spacing:-0.035em;line-height:1.04">Why Scikit? Built by engineers<span style="color:#FF6A2E">.</span></h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#55534F;text-wrap:pretty">Most small business websites and systems are put together from templates and handed over. Ours are designed and built by senior engineers who've designed systems for AWS and some of Victoria's largest organisations. That's why they're fast and secure, and they keep ranking.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 24px;padding-top:8px">
+          <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:center;font-size:15px;font-weight:500"><span style="width:22px;height:22px;border-radius:50%;background:#FF6A2E;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">✓</span>{{ t }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <sc-for list="{{ people }}" as="p" hint-placeholder-count="2">
+          <div style="border:1px solid #E6E4DF;border-radius:12px;padding:24px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:22px;align-items:center">
+            <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(135deg,#ECEAE5 0 8px,#F4F2EE 8px 16px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,Menlo,monospace;font-size:9px;letter-spacing:0.1em;color:#6B6B6B">PHOTO</span></div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-size:12px;letter-spacing:0.16em;color:#FF6A2E">{{ p.area }}</div>
+              <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:21px;letter-spacing:-0.02em">{{ p.name }}</div>
+              <div style="font-size:14px;line-height:1.55;color:#55534F;text-wrap:pretty">{{ p.bio }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="background:#F8F7F4;border-top:1px solid #EEECE7">
+      <div style="max-width:1240px;margin:0 auto;padding:96px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:18px;position:sticky;top:120px">
+          <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">FAQ</div>
+          <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(32px,3.4vw,46px);letter-spacing:-0.035em;line-height:1.04">Questions, answered.</h2>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:6px">
+            <a href="#" onClick="{{ openChat }}" style="display:inline-flex;padding:14px 22px;background:#111111;color:#F8F7F4;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FF6A2E;color:#FFFFFF">Chat with us</a>
+            <a href="#faq" onClick="{{ goFaq }}" style="display:inline-flex;padding:13px 20px;border:1px solid #D0CDC7;border-radius:999px;font-size:15px;font-weight:500">All FAQs</a>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #DDDAD4">
+          <sc-for list="{{ homeFaqs }}" as="f" hint-placeholder-count="6">
+            <div style="border-bottom:1px solid #DDDAD4">
+              <button onClick="{{ f.toggle }}" style="width:100%;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left;cursor:pointer;font-size:17px;font-weight:600;color:#111111">{{ f.q }}<span style="font-size:22px;font-weight:400;color:#FF6A2E;flex-shrink:0">{{ f.icon }}</span></button>
+              <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:0 40px 24px 0;font-size:15px;line-height:1.65;color:#55534F;text-wrap:pretty">{{ f.a }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- SERVICES -->
+  <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 48px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">SERVICES</div>
+      <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.04em;max-width:900px;text-wrap:pretty">Websites that get found, software that fits how you work, and the cloud systems that keep it running<span style="color:#FF6A2E">.</span></h1>
+      <p style="margin:0;font-size:18px;color:#55534F">Designed, built, deployed and maintained by one team.</p>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:24px 40px 40px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;color:#111111">CORE SERVICES</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <sc-for list="{{ coreServices }}" as="s" hint-placeholder-count="4">
+          <a href="#" onClick="{{ s.go }}" style="background:#111111;color:#F8F7F4;border-radius:12px;padding:30px 28px;display:flex;flex-direction:column;gap:40px;min-height:240px" style-hover="background:#1F1F1F;color:#F8F7F4">
+            <span style="width:10px;height:10px;border-radius:50%;background:#FF6A2E"></span>
+            <div style="display:flex;flex-direction:column;gap:10px;flex:1">
+              <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.025em">{{ s.title }}</div>
+              <div style="font-size:15px;line-height:1.55;color:#C9C7C2">{{ s.short }}</div>
+            </div>
+            <span style="font-size:14px;font-weight:500;color:#FF6A2E">Learn more →</span>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:24px 40px 96px;display:flex;flex-direction:column;gap:22px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;color:#111111">ALSO FROM THE SAME TEAM</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <sc-for list="{{ moreServices }}" as="s" hint-placeholder-count="4">
+          <div style="border:1px solid #E6E4DF;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:170px">
+            <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:21px;letter-spacing:-0.02em">{{ s.title }}</div>
+            <div style="font-size:15px;line-height:1.55;color:#55534F;flex:1">{{ s.short }}</div>
+            <span style="font-size:14px;font-weight:500">Learn more →</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:0 40px 96px">
+      <div style="background:#F8F7F4;border:1px solid #E6E4DF;border-radius:14px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+        <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Not sure what you need?</div>
+        <a href="#contact" onClick="{{ goContact }}" style="padding:15px 24px;background:#111111;color:#F8F7F4;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FF6A2E;color:#FFFFFF">Get a free audit →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- WEB DESIGN -->
+  <sc-if value="{{ isWeb }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:56px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">WEB DESIGN FOR SMALL BUSINESS IN MELBOURNE</div>
+        <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.04em;text-wrap:pretty">Websites that load instantly and bring in work<span style="color:#FF6A2E">.</span></h1>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#55534F;text-wrap:pretty">Fast, mobile-first websites that load instantly, rank on Google and turn visitors into enquiries and bookings. Built by engineers, not dragged together from a template.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="#contact" onClick="{{ goContact }}" style="padding:15px 24px;background:#111111;color:#F8F7F4;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FF6A2E;color:#FFFFFF">Start a project →</a>
+          <a href="#contact" onClick="{{ goContact }}" style="padding:14px 22px;border:1px solid #D0CDC7;border-radius:999px;font-size:15px;font-weight:500">Get a free audit of your current site</a>
+        </div>
+      </div>
+    </section>
+    <section style="background:#F8F7F4;border-top:1px solid #EEECE7;border-bottom:1px solid #EEECE7">
+      <div style="max-width:1240px;margin:0 auto;padding:72px 40px;display:flex;flex-direction:column;gap:32px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.03em">Every website includes</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px 32px">
+          <sc-for list="{{ webIncludes }}" as="w" hint-placeholder-count="8">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;padding:14px 0;border-top:1px solid #E6E4DF"><span style="color:#FF6A2E;font-weight:600">✓</span>{{ w }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:88px 40px;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(30px,3.2vw,44px);letter-spacing:-0.035em">Packages</h2>
+        <a href="#pricing" onClick="{{ goPricing }}" style="font-size:15px;font-weight:500;border-bottom:1px solid #D0CDC7;padding-bottom:3px">See full pricing →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ webPlans }}" as="pl" hint-placeholder-count="3">
+          <div style="background:{{ pl.bg }};color:{{ pl.fg }};border:1px solid {{ pl.border }};border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:22px">{{ pl.name }}</span><sc-if value="{{ pl.popular }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;letter-spacing:0.14em;padding:5px 10px;border-radius:999px;background:#FF6A2E;color:#FFFFFF">MOST POPULAR</span></sc-if></div>
+            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:14px;color:{{ pl.muted }}">from</span><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:44px;letter-spacing:-0.03em">{{ pl.price }}</span><span style="font-size:14px;color:{{ pl.muted }}">+ GST</span></div>
+            <div style="font-size:15px;line-height:1.6;color:{{ pl.muted }};text-wrap:pretty">{{ pl.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:0 40px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
+      <div style="border:1px solid #E6E4DF;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.02em">Already have a website?</div><div style="font-size:15px;line-height:1.6;color:#55534F">We can speed it up, fix it or rebuild it, including sites where the original developer has gone quiet. First, we'll get your logins back into your name.</div></div>
+      <div style="border:1px solid #E6E4DF;border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:12px"><div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.02em">Want to rank higher?</div><div style="font-size:15px;line-height:1.6;color:#55534F">Every site comes with SEO foundations. To climb the rankings, add a monthly SEO plan.</div></div>
+    </section>
+    <section style="background:#F8F7F4;border-top:1px solid #EEECE7">
+      <div style="max-width:1240px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:36px;letter-spacing:-0.03em">FAQ</h2>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #DDDAD4">
+          <sc-for list="{{ webFaqs }}" as="f" hint-placeholder-count="3">
+            <div style="border-bottom:1px solid #DDDAD4">
+              <button onClick="{{ f.toggle }}" style="width:100%;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left;cursor:pointer;font-size:17px;font-weight:600;color:#111111">{{ f.q }}<span style="font-size:22px;font-weight:400;color:#FF6A2E">{{ f.icon }}</span></button>
+              <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><div style="padding:0 40px 24px 0;font-size:15px;line-height:1.65;color:#55534F">{{ f.a }}</div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- PRICING -->
+  <sc-if value="{{ isPricing }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 40px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">PRICING</div>
+      <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.04em;max-width:820px;text-wrap:pretty">Clear prices, fixed quotes<span style="color:#FF6A2E">.</span></h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#55534F;max-width:620px">You'll know exactly what you're paying before we start. All prices in AUD, ex GST.</p>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:40px 40px 64px;display:flex;flex-direction:column;gap:24px">
+      <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Websites</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <sc-for list="{{ webPlans }}" as="pl" hint-placeholder-count="3">
+          <div style="background:{{ pl.bg }};color:{{ pl.fg }};border:1px solid {{ pl.border }};border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:22px">{{ pl.name }}</span><sc-if value="{{ pl.popular }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;letter-spacing:0.14em;padding:5px 10px;border-radius:999px;background:#FF6A2E;color:#FFFFFF">MOST POPULAR</span></sc-if></div>
+            <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:14px;color:{{ pl.muted }}">from</span><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:44px;letter-spacing:-0.03em">{{ pl.price }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid {{ pl.border }};padding-top:18px">
+              <sc-for list="{{ pl.features }}" as="ft" hint-placeholder-count="5"><div style="display:flex;gap:10px;font-size:15px;line-height:1.45"><span style="color:#FF6A2E">✓</span>{{ ft }}</div></sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="background:#F8F7F4;border-top:1px solid #EEECE7;border-bottom:1px solid #EEECE7">
+      <div style="max-width:1240px;margin:0 auto;padding:64px 40px;display:flex;flex-direction:column;gap:24px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">SEO</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+          <sc-for list="{{ seoPlans }}" as="sp" hint-placeholder-count="4">
+            <div style="background:#FFFFFF;border:1px solid #E6E4DF;border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:12px">
+              <div style="font-size:15px;font-weight:600">{{ sp.name }}</div>
+              <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.03em">{{ sp.price }}<span style="font-family:Inter,sans-serif;font-weight:400;font-size:14px;color:#6B6B6B"> {{ sp.unit }}</span></div>
+              <div style="font-size:14px;line-height:1.55;color:#55534F">{{ sp.desc }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:14px;color:#6B6B6B">Minimum 3 months, then month-to-month.</div>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:64px 40px;display:flex;flex-direction:column;gap:24px">
+      <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Hosting &amp; Care</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+        <sc-for list="{{ carePlans }}" as="c" hint-placeholder-count="3">
+          <div style="border:1px solid #E6E4DF;border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:12px">
+            <div style="font-size:15px;font-weight:600">{{ c.name }}</div>
+            <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:32px;letter-spacing:-0.03em">{{ c.price }}<span style="font-family:Inter,sans-serif;font-weight:400;font-size:14px;color:#6B6B6B"> / month</span></div>
+            <div style="font-size:14px;line-height:1.55;color:#55534F">{{ c.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:16px 40px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Other services</h2>
+        <div style="display:flex;flex-direction:column;border-top:2px solid #111111">
+          <sc-for list="{{ otherPrices }}" as="o" hint-placeholder-count="6">
+            <div style="display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #E6E4DF;font-size:15px"><span>{{ o.name }}</span><span style="font-weight:600;white-space:nowrap">{{ o.price }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Payment</h2>
+        <div style="display:flex;flex-direction:column;border-top:2px solid #111111">
+          <sc-for list="{{ payment }}" as="pm" hint-placeholder-count="4">
+            <div style="padding:15px 0;border-bottom:1px solid #E6E4DF;font-size:15px;line-height:1.5">{{ pm }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- PROCESS -->
+  <sc-if value="{{ isProcess }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 48px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">OUR PROCESS</div>
+      <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.04em;max-width:900px;text-wrap:pretty">Four steps from first chat to a website that brings in work<span style="color:#FF6A2E">.</span></h1>
+      <p style="margin:0;font-size:18px;color:#55534F">Fixed prices, weekly updates, no surprises.</p>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:24px 40px 80px;display:flex;flex-direction:column">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px 48px;padding:40px 0;border-top:1px solid #E6E4DF">
+          <div style="display:flex;gap:20px;align-items:baseline"><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:44px;letter-spacing:-0.03em;color:#FF6A2E">{{ st.num }}</span><span style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">{{ st.title }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="font-size:16px;line-height:1.65;color:#55534F;text-wrap:pretty">{{ st.long }}</div>
+            <div style="font-size:15px;background:#F8F7F4;border-radius:8px;padding:14px 16px"><span style="font-weight:600">You get:</span> {{ st.get }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+    <section style="background:#111111;color:#F8F7F4">
+      <div style="max-width:1240px;margin:0 auto;padding:80px 40px;display:flex;flex-direction:column;gap:36px">
+        <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(30px,3.2vw,44px);letter-spacing:-0.035em">Our promises</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
+          <sc-for list="{{ promises }}" as="pr" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:10px;border-top:2px solid #FF6A2E;padding-top:18px"><div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:20px">{{ pr.t }}</div><div style="font-size:15px;line-height:1.55;color:#C9C7C2">{{ pr.d }}</div></div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- FAQ -->
+  <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 40px;display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">FREQUENTLY ASKED QUESTIONS</div>
+      <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.6vw,62px);line-height:1.02;letter-spacing:-0.04em">Straight answers<span style="color:#FF6A2E">.</span></h1>
+    </section>
+    <section style="max-width:1240px;margin:0 auto;padding:24px 40px 96px;display:flex;flex-direction:column;gap:56px">
+      <sc-for list="{{ faqGroups }}" as="g" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px 48px">
+          <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.025em;padding-top:20px">{{ g.name }}</h2>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #DDDAD4;grid-column:span 2;min-width:0">
+            <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="3">
+              <div style="border-bottom:1px solid #DDDAD4">
+                <button onClick="{{ f.toggle }}" style="width:100%;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left;cursor:pointer;font-size:17px;font-weight:600;color:#111111">{{ f.q }}<span style="font-size:22px;font-weight:400;color:#FF6A2E">{{ f.icon }}</span></button>
+                <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><div style="padding:0 40px 24px 0;font-size:15px;line-height:1.65;color:#55534F;text-wrap:pretty">{{ f.a }}</div></sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+  </sc-if>
+
+  <!-- CONTACT -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:1240px;margin:0 auto;padding:80px 40px 96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:56px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:12px;letter-spacing:0.2em;color:#6B6B6B">START A PROJECT</div>
+        <h1 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(38px,4.4vw,58px);line-height:1.02;letter-spacing:-0.04em;text-wrap:pretty">Tell us about your business<span style="color:#FF6A2E">.</span></h1>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#55534F;text-wrap:pretty">We'll reply within one business day with next steps, or a fixed-price quote within 2 business days.</p>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #E6E4DF;margin-top:12px">
+          <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;padding:18px 0 6px">OR REACH US DIRECTLY</div>
+          <sc-for list="{{ contactRows }}" as="cr" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid #EEECE7;font-size:15px"><span style="color:#6B6B6B">{{ cr.k }}</span><span>{{ cr.v }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#F8F7F4;border:1px solid #E6E4DF;border-radius:16px;padding:clamp(24px,3vw,40px)">
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding:40px 0">
+            <span style="width:48px;height:48px;border-radius:50%;background:#FF6A2E;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:22px">✓</span>
+            <div style="font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:30px;letter-spacing:-0.03em">Thanks! We've got it.</div>
+            <div style="font-size:16px;line-height:1.6;color:#55534F">Ali or Hassan will be in touch within one business day.</div>
+            <button onClick="{{ resetForm }}" style="background:none;border:none;padding:0;font-size:14px;color:#6B6B6B;cursor:pointer;text-decoration:underline">Send another enquiry</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Name *<input required="required" style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;outline-color:#FF6A2E"></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Business name<input style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;outline-color:#FF6A2E"></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Email *<input type="email" required="required" style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;outline-color:#FF6A2E"></label>
+              <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Phone<input type="tel" style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;outline-color:#FF6A2E"></label>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Current website (if you have one)<input placeholder="yourbusiness.com.au" style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;outline-color:#FF6A2E"></label>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:13px;font-weight:500">What do you need?</span>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <sc-for list="{{ needs }}" as="nd" hint-placeholder-count="6">
+                  <button type="button" onClick="{{ nd.toggle }}" style="padding:9px 15px;border-radius:999px;font-size:14px;cursor:pointer;border:1px solid {{ nd.border }};background:{{ nd.bg }};color:{{ nd.fg }}">{{ nd.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <span style="font-size:13px;font-weight:500">Budget</span>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <sc-for list="{{ budgets }}" as="b" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ b.pick }}" style="padding:9px 15px;border-radius:999px;font-size:14px;cursor:pointer;border:1px solid {{ b.border }};background:{{ b.bg }};color:{{ b.fg }}">{{ b.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:500">Tell us about your business *<textarea required="required" rows="5" style="padding:13px 14px;border:1px solid #DDDAD4;border-radius:8px;font-size:15px;background:#FFFFFF;resize:vertical;outline-color:#FF6A2E"></textarea></label>
+            <div style="font-size:13px;color:#6B6B6B">We'll only use your details to reply to your enquiry. See our <a href="#" style="text-decoration:underline">privacy policy</a>.</div>
+            <div style="display:flex"><button type="submit" style="padding:16px 30px;background:#111111;color:#F8F7F4;border:none;border-radius:999px;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#FF6A2E">Send →</button></div>
+          </form>
+        </sc-if>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- SHARED CTA -->
+  <sc-if value="{{ showCta }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width:1240px;margin:0 auto;padding:0 40px 96px;width:100%;box-sizing:border-box">
+      <div style="background:#111111;color:#F8F7F4;border-radius:16px;padding:clamp(36px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden">
+        <div style="position:absolute;left:-100px;top:-140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,46,0.3),rgba(255,106,46,0) 70%)"></div>
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:620px;position:relative">
+          <h2 style="margin:0;font-family:'Inter Tight',Inter,sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,46px);line-height:1.04;letter-spacing:-0.035em">{{ ctaTitle }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.55;color:#C9C7C2">Tell us about your business. We'll send a fixed-price quote within 2 business days.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;position:relative">
+          <a href="#contact" onClick="{{ ctaGo }}" style="display:inline-flex;gap:12px;padding:16px 28px;background:#FF6A2E;color:#FFFFFF;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#F8F7F4;color:#111111">{{ ctaButton }} →</a>
+          <span style="font-size:14px;color:#9CA3AF">or email [EMAIL]</span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  </main>
+
+  <footer style="background:#F8F7F4;border-top:1px solid #E6E4DF">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 40px 32px;display:flex;flex-direction:column;gap:48px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px">
+        <div style="display:flex;flex-direction:column;gap:16px;grid-column:span 1">
+          <img src="logos/scikit-wordmark.svg" alt="scikit" style="height:30px;width:auto;align-self:flex-start">
+          <div style="font-size:14px;line-height:1.6;color:#55534F;max-width:260px">Websites, software &amp; cloud for Australian small businesses.</div>
+          <div style="font-size:11px;letter-spacing:0.2em;color:#9CA3AF">DIGITAL, BUILT PROPERLY.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <div style="font-size:12px;letter-spacing:0.16em;color:#6B6B6B;padding-bottom:4px">SERVICES</div>
+          <a href="#" onClick="{{ goWeb }}">Web Design</a><a href="#" onClick="{{ goServices }}">SEO</a><a href="#" onClick="{{ goServices }}">Custom Software</a><a href="#" onClick="{{ goServices }}">Hosting &amp; Care</a><a href="#" onClick="{{ goServices }}">Mobile Apps</a><a href="#" onClick="{{ goServices }}">Cloud &amp; Microsoft 365</a><a href="#" onClick="{{ goServices }}">Cyber Security</a><a href="#" onClick="{{ goServices }}">AI &amp; Automation</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <div style="font-size:12px;letter-spacing:0.16em;color:#6B6B6B;padding-bottom:4px">COMPANY</div>
+          <a href="#" onClick="{{ goProcess }}">Process</a><a href="#" onClick="{{ goPricing }}">Pricing</a><a href="#" onClick="{{ goFaq }}">FAQ</a><a href="#" onClick="{{ goContact }}">Contact</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#3A3A3A">
+          <div style="font-size:12px;letter-spacing:0.16em;color:#6B6B6B;padding-bottom:4px">CONTACT</div>
+          <span>[STREET ADDRESS]</span><span>Melbourne VIC [POSTCODE]</span><span>[PHONE]</span><span>[EMAIL]</span>
+          <div style="display:flex;gap:16px;padding-top:8px"><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">Facebook</a></div>
+        </div>
+      </div>
+      <div style="font-size:13px;line-height:1.6;color:#6B6B6B;max-width:720px;text-wrap:pretty">Scikit acknowledges the Traditional Custodians of the lands on which we live and work, and pays respect to Elders past and present.</div>
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;border-top:1px solid #E6E4DF;font-size:13px;color:#6B6B6B">
+        <span>© 2026 Scikit · Melbourne, Australia · ABN [ABN]</span>
+        <div style="display:flex;gap:20px"><a href="#" style="color:#6B6B6B">Privacy</a><a href="#" style="color:#6B6B6B">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <sc-if value="{{ showChat }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;right:24px;bottom:24px;z-index:30;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+      <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="width:300px;background:#FFFFFF;border:1px solid #E6E4DF;border-radius:14px;box-shadow:0 24px 50px -20px rgba(0,0,0,0.35);overflow:hidden">
+          <div style="background:#111111;color:#F8F7F4;padding:18px 20px;display:flex;gap:12px;align-items:center"><img src="logos/icon-dark.svg" alt="" style="width:40px;height:40px;margin:-4px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px">Scikit</span><span style="font-size:12px;color:#B5B5B5">Usually replies within a business day</span></div></div>
+          <div style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+            <div style="background:#F8F7F4;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5">Hi! Tell us what you're working on and Ali or Hassan will get back to you.</div>
+            <a href="#" style="display:flex;justify-content:center;padding:12px;background:#111111;color:#F8F7F4;border-radius:999px;font-size:14px;font-weight:500">Message on WhatsApp</a>
+            <a href="#" style="display:flex;justify-content:center;padding:11px;border:1px solid #D0CDC7;border-radius:999px;font-size:14px;font-weight:500">Send an SMS</a>
+          </div>
+        </div>
+      </sc-if>
+      <button onClick="{{ toggleChat }}" style="display:flex;align-items:center;gap:10px;padding:14px 20px;background:#FF6A2E;color:#FFFFFF;border:none;border-radius:999px;font-size:15px;font-weight:500;cursor:pointer;box-shadow:0 14px 30px -12px rgba(255,106,46,0.7)">{{ chatLabel }}</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnouncement&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Global&quot;},&quot;showChat&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Global&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', open: {}, needs: {}, budget: null, submitted: false, chatOpen: false, w: window.innerWidth, menu: false };
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this.onResize);
+    const h = (location.hash || '').replace('#', '');
+    const saved = localStorage.getItem('scikit-site-page');
+    const p = PAGES.includes(h) ? h : (PAGES.includes(saved) ? saved : 'home');
+    if (p !== 'home') this.setState({ page: p });
+  }
+  go(p) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: p, chatOpen: false, menu: false });
+      try { localStorage.setItem('scikit-site-page', p); history.replaceState(null, '', '#' + p); } catch (err) {}
+      window.scrollTo(0, 0);
+    };
+  }
+  faq(list, prefix) {
+    return list.map((f, i) => {
+      const k = prefix + i, open = !!this.state.open[k];
+      return { ...f, open, icon: open ? '−' : '+', toggle: () => this.setState(s => ({ open: { ...s.open, [k]: !s.open[k] } })) };
+    });
+  }
+  renderVals() {
+    const P = this.state.page;
+    const navDefs = [['Web Design', 'web'], ['SEO', 'services'], ['Custom Software', 'services'], ['Hosting & Care', 'services'], ['More services', 'services'], ['Pricing', 'pricing'], ['Process', 'process'], ['FAQ', 'faq']];
+    const nav = navDefs.map(([label, p], i) => {
+      const active = P === p && (p !== 'services' || i === 4);
+      return { label, go: this.go(p), color: active ? '#FF6A2E' : '#111111', weight: active ? 600 : 400 };
+    });
+    const core = [
+      { num: '01', title: 'Web Design', page: 'web', body: 'Fast, mobile-first websites that load instantly, rank on Google and turn visitors into enquiries and bookings.', short: 'Fast, mobile-first websites that rank on Google and turn visitors into customers.' },
+      { num: '02', title: 'SEO', page: 'services', body: 'Rank on Google, and get recommended by AI search, for the terms that bring in customers. Technical SEO, local SEO, Google Business Profile and content.', short: 'Rank on Google, and get recommended by AI search, for the terms that bring in customers.' },
+      { num: '03', title: 'Custom Software', page: 'services', body: 'Booking systems, customer portals and internal tools designed, built and deployed around how your business works.', short: 'Booking systems, customer portals and internal tools designed, built and deployed around how you work.' },
+      { num: '04', title: 'Hosting & Care', page: 'services', body: 'Secure hosting, cloud setup, backups and ongoing maintenance for everything we build, looked after by a former AWS Solutions Architect.', short: 'Secure hosting, backups, updates and monthly changes, looked after by a former AWS architect.' },
+    ].map(s => ({ ...s, go: this.go(s.page) }));
+    const needLabels = ['New website', 'Website redesign', 'SEO', 'Hosting & care', 'Free audit', 'Something else'];
+    const budgetLabels = ['Under $5k', '$5k–$10k', '$10k–$20k', '$20k+', 'Not sure'];
+    const chip = on => ({ bg: on ? '#111111' : '#FFFFFF', fg: on ? '#F8F7F4' : '#111111', border: on ? '#111111' : '#DDDAD4' });
+    const ctaMap = { home: ['Ready to get found on Google?', 'Start a project'], services: ['Ready to get found on Google?', 'Start a project'], web: ['Get a fixed-price website quote within 2 business days.', 'Start a project'], pricing: ['Want an exact price?', 'Start a project'], process: ['Start with step 01.', 'Get my free audit'], faq: ['Still have a question?', 'Start a project'] };
+    const cta = ctaMap[P] || ctaMap.home;
+    return {
+      wide: this.state.w >= 1180, narrow: this.state.w < 1180, menuVisible: this.state.w < 1180 && this.state.menu,
+      menuLabel: this.state.menu ? 'Close' : 'Menu', toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      nav, showBar: this.props.showAnnouncement ?? true, showChat: this.props.showChat ?? true,
+      isHome: P === 'home', isServices: P === 'services', isWeb: P === 'web', isPricing: P === 'pricing', isProcess: P === 'process', isFaq: P === 'faq', isContact: P === 'contact',
+      showCta: P !== 'contact', ctaTitle: cta[0], ctaButton: cta[1], ctaGo: this.go('contact'),
+      goHome: this.go('home'), goServices: this.go('services'), goWeb: this.go('web'), goPricing: this.go('pricing'), goProcess: this.go('process'), goFaq: this.go('faq'), goContact: this.go('contact'),
+      auditItems: ['Speed and mobile check (Google Core Web Vitals)', "Where you rank for your top 5 search terms, and who's beating you", 'Google Business Profile review', 'Security and backup check', "The three things we'd fix first. No obligation."].map((text, i) => ({ text, num: '0' + (i + 1) })),
+      coreServices: core,
+      moreServices: [
+        { title: 'Mobile Apps', short: 'iOS and Android apps from one codebase.' },
+        { title: 'Cloud & Microsoft 365', short: 'Email, files, backups and AWS/Azure set up properly.' },
+        { title: 'Cyber Security', short: 'Essential Eight-aligned protection for small businesses.' },
+        { title: 'AI & Automation', short: 'AI chatbots and automated admin, with your data kept private.' },
+      ],
+      steps: [
+        { num: '01', title: 'Audit', short: 'We review your current site, your competitors and what your customers search for.', long: "We review your current website, your competitors and what your customers search for on Google. You get a free audit with the three things we'd fix first.", get: 'a video walkthrough and a one-page report.' },
+        { num: '02', title: 'Plan', short: "A fixed-price proposal with a sitemap and the keywords we'll target. No surprises.", long: "We send a fixed-price proposal in plain English: a sitemap, the keywords we'll target, the timeline and the cost.", get: 'a clear scope and price before any work starts.' },
+        { num: '03', title: 'Build', short: 'We design and develop with speed, SEO and security built in, and show you progress every week.', long: 'We design and develop your site with speed, SEO and security built in. You get a preview link and a weekly update, so you can see progress and give feedback early.', get: "a site you've seen and approved at every step." },
+        { num: '04', title: 'Launch & Grow', short: 'We go live, submit to Google, set up analytics and track your rankings and enquiries every month.', long: 'We go live, submit your site to Google, set up analytics and hand over every login in your name. With an SEO or care plan, we keep improving your rankings and send a monthly report.', get: 'a live site, full ownership, and results you can track.' },
+      ],
+      ticks: ['Senior engineers only', 'Fixed-price quotes in AUD', 'You own your site, domain and accounts', 'In-person meetings in Melbourne'],
+      people: [
+        { name: 'Ali Lishan', area: 'WEB DESIGN & DEVELOPMENT', bio: 'Chief Software Architect with 20+ years building web and mobile applications.' },
+        { name: 'Hassan Sheikh', area: 'HOSTING & SECURITY', bio: 'Former AWS Solutions Architect, AWS Security Specialty certified, with 20 years in infrastructure.' },
+      ],
+      homeFaqs: this.faq(HOME_FAQ, 'h'),
+      webFaqs: this.faq(WEB_FAQ, 'w'),
+      faqGroups: FAQ_GROUPS.map((g, gi) => ({ name: g.name, items: this.faq(g.items, 'g' + gi + '-') })),
+      webIncludes: ['Mobile-first design', 'Page speed optimised (green Core Web Vitals)', 'SEO setup: titles, schema, sitemap, Google Search Console', 'Google Business Profile and analytics setup', 'Contact and enquiry forms that land in your inbox', 'Secure hosting setup, SSL and daily backups', 'Easy editing, so you can change text and photos yourself', 'Everything in your name: domain, hosting, code'],
+      webPlans: [
+        { name: 'Starter', price: '$3,500', desc: 'Up to 5 pages. Ideal for new businesses and sole traders. Live in about 3 weeks.', features: ['Up to 5 pages', 'Mobile-first design', 'Enquiry form', 'SEO setup and Google Business Profile', 'Live in about 3 weeks'] },
+        { name: 'Growth', price: '$7,500', popular: true, desc: 'Up to 12 pages, custom design, online bookings or quote requests, blog, copywriting help. Live in 4–6 weeks.', features: ['Up to 12 pages, custom design', 'Bookings or quote requests', 'Blog and copywriting help', 'CRM or email marketing integration', 'Live in 4–6 weeks'] },
+        { name: 'Commerce', price: '$12,000', desc: 'Online store with payments, shipping, GST and Xero/MYOB. Live in 6–8 weeks.', features: ['Online store (Shopify, WooCommerce or custom)', 'Payments, shipping and GST set up', 'Xero / MYOB integration', 'Live in 6–8 weeks'] },
+      ].map(p => p.popular ? { ...p, bg: '#111111', fg: '#F8F7F4', border: '#2E2E2E', muted: '#C9C7C2' } : { ...p, popular: false, bg: '#FFFFFF', fg: '#111111', border: '#E6E4DF', muted: '#55534F' }),
+      seoPlans: [
+        { name: 'Free Website & SEO Audit', price: '$0', unit: '', desc: 'Video walkthrough and a one-page report within 3 business days.' },
+        { name: 'Local SEO Setup', price: '$1,500', unit: 'one-off, from', desc: 'Google Business Profile, citations, schema and on-page fixes.' },
+        { name: 'Local', price: '$790', unit: '/ month', desc: '1 area · 10 keywords · 1 article a month · monthly report' },
+        { name: 'Growth', price: '$1,490', unit: '/ month', desc: 'City or region · 25 keywords · 2 articles a month · AI search tracking · monthly review call' },
+      ],
+      carePlans: [
+        { name: 'Essentials', price: '$99', desc: 'Hosting, updates, backups, 30 min of changes.' },
+        { name: 'Business', price: '$249', desc: 'Plus security scanning, SEO health report, 2 hrs of changes.' },
+        { name: 'Complete', price: '$599', desc: 'Plus Microsoft 365 admin, security checks, 5 hrs of support.' },
+      ],
+      otherPrices: [
+        { name: 'Custom software / web app', price: 'from $10,000' }, { name: 'Mobile app (iOS + Android)', price: 'from $20,000' }, { name: 'Automation or integration', price: 'from $2,500' },
+        { name: 'Microsoft 365 setup or migration', price: 'from $1,500' }, { name: 'Security review (Essential Eight)', price: 'from $1,800' }, { name: 'Hourly work', price: '$150 / hour' },
+      ],
+      payment: ['Projects under $5,000: 50% upfront, 50% at launch', 'Larger projects: milestone payments', 'Monthly plans: billed in advance', 'Bank transfer or card, 14-day terms'],
+      promises: [
+        { t: 'Fixed prices.', d: "If we underestimate, that's on us." }, { t: 'You own everything.', d: 'Domain, hosting, code and content.' },
+        { t: 'Straight answers.', d: "If you don't need something, we'll say so." }, { t: 'Fast replies.', d: 'Within one business day.' },
+      ],
+      contactRows: [{ k: 'Email', v: '[EMAIL]' }, { k: 'Phone', v: '[PHONE]' }, { k: 'Chat', v: 'WhatsApp / SMS' }, { k: 'Office', v: '[STREET ADDRESS], Melbourne VIC [POSTCODE]' }, { k: 'Hours', v: 'Mon–Fri, 9am–5:30pm AEST/AEDT' }],
+      needs: needLabels.map(label => ({ label, ...chip(!!this.state.needs[label]), toggle: () => this.setState(s => ({ needs: { ...s.needs, [label]: !s.needs[label] } })) })),
+      budgets: budgetLabels.map(label => ({ label, ...chip(this.state.budget === label), pick: () => this.setState({ budget: label }) })),
+      submitted: this.state.submitted, notSubmitted: !this.state.submitted,
+      submit: e => { e.preventDefault(); this.setState({ submitted: true }); window.scrollTo(0, 0); },
+      resetForm: () => this.setState({ submitted: false, needs: {}, budget: null }),
+      chatOpen: this.state.chatOpen, chatLabel: this.state.chatOpen ? 'Close' : 'Chat with us',
+      toggleChat: () => this.setState(s => ({ chatOpen: !s.chatOpen })),
+      openChat: e => { e.preventDefault(); this.setState({ chatOpen: true }); },
+    };
+  }
+}
+const PAGES = ['home', 'services', 'web', 'pricing', 'process', 'faq', 'contact'];
+const HOME_FAQ = [
+  { q: 'How long does a website take to build?', a: 'A standard small business website is usually live 3 weeks after we receive your content. Online stores and larger sites take 4–8 weeks.' },
+  { q: 'How much does a website cost in Australia?', a: 'Our websites start from $3,500 + GST for a small business site. Sites with bookings or integrations start from $7,500, and online stores from $12,000. Every site includes SEO setup, mobile optimisation, secure hosting setup and backups.' },
+  { q: 'How much does SEO cost?', a: 'Our monthly SEO plans start from $790 + GST, and a one-off local SEO setup starts from $1,500 + GST. Most small businesses start seeing movement in 3–6 months.' },
+  { q: 'Do you guarantee first-page Google rankings?', a: "No. No honest agency can guarantee rankings, because Google weighs hundreds of factors. We follow every proven best practice and report your rankings and enquiries every month, so you can see exactly what you're getting." },
+  { q: 'What is SEO and why does my business need it?', a: 'SEO (search engine optimisation) is how you get your website to appear when people search for what you do. It covers Google and, increasingly, AI tools like ChatGPT. When someone in your area searches for your service, SEO decides whether they find you or a competitor.' },
+  { q: 'Do you only do websites?', a: 'No. We build websites and run SEO, and we also design, build and deploy custom software and cloud solutions, then maintain everything we build. One team, from your first website to the systems your business runs on.' },
+];
+const WEB_FAQ = [
+  { q: 'How long does it take?', a: 'About 3 weeks for a Starter site once we have your content. Bigger sites take 4–8 weeks.' },
+  { q: 'Do I need to write the content?', a: "Just send us the key facts. We'll write and polish the copy." },
+  { q: 'Will I own it?', a: 'Yes. The domain, hosting and code are all in your name.' },
+];
+const FAQ_GROUPS = [
+  { name: 'Websites', items: [
+    { q: 'How much does a website cost in Australia?', a: HOME_FAQ[1].a },
+    { q: 'How long does a website take to build?', a: 'A Starter site is usually live 3 weeks after we receive your content. Larger sites and online stores take 4–8 weeks.' },
+    { q: 'Do I need to write the content?', a: "No. Send us the key facts about your business and we'll write and polish the copy." },
+    { q: 'Can I update the website myself?', a: 'Yes. You can edit text, photos and blog posts without a developer.' },
+    { q: 'Will I own my website?', a: 'Yes. The domain, hosting account, code and content are all in your name.' },
+  ] },
+  { name: 'SEO', items: [
+    { q: 'What is SEO and why does my business need it?', a: 'SEO (search engine optimisation) is how you get your website to appear when people search for what you do, on Google and, increasingly, in AI tools like ChatGPT. It decides whether customers find you or a competitor.' },
+    { q: 'How much does SEO cost?', a: 'Monthly plans start from $790 + GST. A one-off local SEO setup starts from $1,500 + GST.' },
+    { q: 'How long until I see results?', a: 'Usually 3–6 months for meaningful movement. Google Business Profile and technical fixes can show results within weeks.' },
+    { q: 'Do you guarantee first-page Google rankings?', a: 'No. No honest agency can guarantee rankings, because Google weighs hundreds of factors. We follow every proven best practice and report your rankings and enquiries every month.' },
+    { q: 'What is AI search (GEO)?', a: 'More people now ask ChatGPT, Google AI or Perplexity for recommendations instead of scrolling search results. GEO (generative engine optimisation) makes sure those tools can find, understand and recommend your business.' },
+  ] },
+  { name: 'Hosting & Support', items: [
+    { q: 'Do you host websites?', a: 'Yes. Our Hosting & Care plans start from $99/month and include secure hosting, daily backups, updates and monthly changes.' },
+    { q: 'Can you take over a website someone else built?', a: 'Yes. We start with a takeover audit to get your logins back and check your site is secure.' },
+  ] },
+  { name: 'Working with us', items: [
+    { q: 'Where are you based?', a: 'Melbourne. We meet clients in person around Melbourne and work with businesses across Australia remotely.' },
+    { q: 'Do you only do websites and SEO?', a: "They're our focus. The same team also builds custom software and apps, and sets up Microsoft 365, cloud and cyber security, so you don't need another provider as you grow." },
+    { q: 'Are your prices ex GST?', a: 'Yes. All prices are in AUD and exclude GST.' },
+  ] },
+];
+</script>
+</body>
+</html>

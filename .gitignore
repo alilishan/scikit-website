@@ -1,0 +1,19 @@
+# Private: personal CVs (contain personal contact details)
+resumes/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Node / Next.js (also covered by website/.gitignore)
+node_modules/
+.next/
+out/
+.vercel/
+
+# Env files: never commit secrets. The example file is safe to share.
+.env
+.env.*
+!.env.example
