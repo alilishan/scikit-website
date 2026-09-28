@@ -340,7 +340,7 @@ export function HeroVisual() {
   const cq = geo ? geo.w / 100 : 0; // 1cqw in px
 
   return (
-    <div ref={container} aria-hidden className="@container relative mx-auto aspect-[100/96] w-full max-w-[740px] select-none">
+    <div ref={container} aria-hidden className="@container relative isolate mx-auto aspect-[100/96] w-full max-w-[740px] select-none">
       {/* Laptop photo. mix-blend on the animated wrapper (its transform isolates children) melts the
           photo's near-white background into the page; the mask feathers its edges. */}
       <motion.div
