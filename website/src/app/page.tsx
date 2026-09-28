@@ -11,6 +11,8 @@ import { coreServices, moreServices } from "@/content/services";
 import { homeFaqs } from "@/content/faqs";
 import { Marquee } from "@/components/ui/marquee";
 import { ConnectBeam } from "@/components/site/connect-beam";
+import { WorkGrid } from "@/components/site/work-grid";
+import { work } from "@/content/work";
 import { EdgeBeam, Reveal, RevealLines } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
 
@@ -21,6 +23,7 @@ export default function HomePage() {
       <TrustStrip />
       <Offer />
       <Services />
+      <RecentWork />
       <Process />
       <WhyScikit />
       <HomeFaq />
@@ -181,7 +184,8 @@ function Services() {
         </div>
         <TextLink href="/services">All services <Arrow /></TextLink>
       </Reveal>
-      <Reveal delay={0.1}>
+      {/* offset 0: fade only. A moving entrance would make the beams measure mid-animation and end up misaligned. */}
+      <Reveal delay={0.1} offset={0}>
         <ConnectBeam />
       </Reveal>
       <div className="auto-grid gap-px overflow-hidden rounded-xl bg-warm-200 shadow-panel [--min:260px]">
@@ -215,6 +219,23 @@ function Services() {
           </span>
         ))}
       </div>
+    </section>
+  );
+}
+
+function RecentWork() {
+  return (
+    <section id="work" className="container-site flex scroll-mt-24 flex-col gap-11 pb-24">
+      <Reveal className="flex flex-col gap-3.5">
+        <Eyebrow>Recent work</Eyebrow>
+        <SectionTitle>
+          Things we&apos;ve built<Stop />
+        </SectionTitle>
+        <p className="m-0 max-w-[620px] text-[17px] leading-[1.6] text-body">
+          Products and sites designed, built and run by the Scikit team, from the first sketch to the servers they run on.
+        </p>
+      </Reveal>
+      <WorkGrid items={work} />
     </section>
   );
 }

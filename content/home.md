@@ -72,13 +72,19 @@ Secure hosting, cloud setup, backups and ongoing maintenance for everything we b
 
 # Recent work
 
-<!-- Hide this section until you have 2–3 real projects. Format per item:
-**domain.com.au**: Client name (Industry)
-One line on what it is.
--->
+## Things we've built.
+Products and sites designed, built and run by the Scikit team, from the first sketch to the servers they run on.
 
-## Recent Work
-Live websites we've designed and built for Australian businesses.
+**Revyze** (revyze.vercel.app): Web app · Education
+A free revision platform for Cambridge IGCSE students. Flashcards and timed, exam-style quizzes are built from real past papers, with progress tracking down to every question.
+
+**FixtureFlow** (fixtureflow.app): SaaS platform · Sport
+Club management for football clubs that have outgrown group chats and spreadsheets. Fixtures, live results and standings that update themselves, cup brackets, and widgets that drop into any club website.
+
+**Beyond Stacks & Syntax** (alilishan.com): Publication · Technology
+Ali's engineering publication: practical writing on software architecture, infrastructure, AI and the decisions behind better software, organised by topic and series.
+
+<!-- These are the team's own products, not client projects. Add client work (with permission) as it launches. -->
 
 ---
 
