@@ -111,13 +111,13 @@ function Hero() {
 function TrustStrip() {
   return (
     <section className="border-y border-warm-100 bg-offwhite">
-      <div className="container-site flex flex-wrap items-center gap-x-10 gap-y-3 py-4">
+      <div className="container-site flex flex-col gap-y-2 py-4 sm:flex-row sm:items-center sm:gap-x-10">
         <span className="shrink-0 text-xs tracking-[0.18em] text-label">BUILT BY ENGINEERS CERTIFIED IN</span>
         <Marquee
           pauseOnHover
           repeat={3}
           aria-label={certifications.join(", ")}
-          className="min-w-0 flex-1 [--duration:28s] [--gap:2rem] [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]"
+          className="w-full min-w-0 sm:w-auto sm:flex-1 [--duration:28s] [--gap:2rem] [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]"
         >
           {certifications.map((c) => (
             <span key={c} aria-hidden className="flex items-center gap-8 text-[15px] font-medium whitespace-nowrap text-ink-soft">
