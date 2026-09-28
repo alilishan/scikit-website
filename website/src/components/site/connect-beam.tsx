@@ -29,7 +29,7 @@ const Node = forwardRef<HTMLDivElement, { icon: LucideIcon; label: string }>(fun
   );
 });
 
-const columnTitle = "text-center text-[11px] tracking-[0.18em] text-label uppercase";
+const columnTitle = "text-center text-[11px] leading-snug tracking-[0.1em] text-label uppercase sm:tracking-[0.18em]";
 const nodeColumn = "flex flex-col items-center gap-16 sm:gap-[72px]";
 
 /**

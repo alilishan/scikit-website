@@ -38,5 +38,7 @@ export const addressLine = [site.street, localityLine].filter(Boolean).join(", "
 
 export const emailHref = site.email ? `mailto:${site.email}` : "/contact";
 export const phoneHref = site.phone ? `tel:${site.phone.replace(/[^\d+]/g, "")}` : "/contact";
-export const smsHref = site.phone ? `sms:${site.phone.replace(/[^\d+]/g, "")}` : "/contact";
-export const whatsappHref = site.whatsapp ? `https://wa.me/${site.whatsapp.replace(/\D/g, "")}` : "/contact";
+// WhatsApp click-to-chat with a greeting already typed in. Empty when no number is set (the button is hidden).
+export const whatsappHref = site.whatsapp
+  ? `https://wa.me/${site.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hi Scikit, I'd like to talk about a project.")}`
+  : "";

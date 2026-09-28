@@ -12,7 +12,7 @@ const field = "flex flex-col gap-[7px] text-[13px] font-medium";
 const input =
   "rounded-lg border border-warm-300 bg-white px-3.5 py-[13px] text-[15px] font-normal outline-orange focus-visible:outline-2";
 const chip =
-  "inline-block cursor-pointer rounded-full border border-warm-300 bg-white px-[15px] py-[9px] text-sm peer-checked:border-charcoal peer-checked:bg-charcoal peer-checked:text-offwhite peer-focus-visible:outline-2 peer-focus-visible:outline-orange";
+  "inline-block cursor-pointer rounded-full border border-warm-300 bg-white px-[15px] py-[10px] text-sm peer-checked:border-charcoal peer-checked:bg-charcoal peer-checked:text-offwhite peer-focus-visible:outline-2 peer-focus-visible:outline-orange";
 
 export function ContactForm() {
   // Changing the key remounts the form, which resets it after "Send another enquiry".

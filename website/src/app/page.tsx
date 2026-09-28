@@ -1,9 +1,11 @@
 import { Fragment } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { CtaBlock } from "@/components/site/cta-block";
 import { FaqList } from "@/components/site/faq-list";
+import { JsonLd } from "@/components/site/json-ld";
 import { OpenChatButton } from "@/components/site/chat";
 import { Arrow, Dot, Eyebrow, SectionTitle, Stop, TextLink, Tick } from "@/components/site/primitives";
 import { auditItems, certifications, people, steps, ticks } from "@/content/home";
@@ -15,10 +17,25 @@ import { WorkGrid } from "@/components/site/work-grid";
 import { work } from "@/content/work";
 import { EdgeBeam, Reveal, RevealLines } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: "Scikit | Web Design & Software Development Melbourne",
+  description:
+    "Scikit builds fast, secure websites that rank on Google, plus custom software and cloud systems, for Australian small businesses. Melbourne-based, fixed prices.",
+  path: "/",
+});
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: homeFaqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+        }}
+      />
       <Hero />
       <TrustStrip />
       <Offer />
@@ -213,7 +230,7 @@ function Services() {
         {moreServices.map((s, i) => (
           <span key={s.slug} className="flex items-center gap-[18px]">
             {i > 0 && <span className="text-warm-400">·</span>}
-            <Link href={`/services/${s.slug}`} className="hover:text-orange">
+            <Link href={`/services/${s.slug}`} className="relative after:absolute after:-inset-x-1 after:-inset-y-2.5 after:content-[''] hover:text-orange">
               {s.label ?? s.title}
             </Link>
           </span>

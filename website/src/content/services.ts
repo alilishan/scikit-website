@@ -87,9 +87,9 @@ export const services: Service[] = [
     num: "02",
     body: "Rank on Google, and get recommended by AI search, for the terms that bring in customers. Technical SEO, local SEO, Google Business Profile and content.",
     short: "Rank on Google, and get recommended by AI search, for the terms that bring in customers.",
-    metaTitle: "SEO for Small Business in Melbourne | Local SEO & AI Search | Scikit",
+    metaTitle: "SEO & Local SEO for Small Business Melbourne | Scikit",
     metaDescription:
-      "SEO for Australian small businesses. Technical SEO, local SEO, Google Business Profile and content that ranks on Google and gets recommended by AI search. Monthly reporting, no lock-in.",
+      "SEO for Australian small businesses: technical and local SEO, Google Business Profile and content that ranks on Google and in AI search. No lock-in.",
     eyebrow: "SEO for small business in Melbourne",
     h1: "SEO that brings in customers, not just traffic",
     lead: "Rank on Google for the searches that matter to your business, and show up when customers ask ChatGPT, Google AI or Perplexity for a recommendation.",
@@ -131,7 +131,7 @@ export const services: Service[] = [
     short: "Booking systems, customer portals and internal tools designed, built and deployed around how you work.",
     metaTitle: "Custom Software & Web Apps Melbourne | Scikit",
     metaDescription:
-      "Custom booking systems, customer portals, internal tools and integrations for Australian small businesses. Built by a Chief Software Architect with 20+ years' experience.",
+      "Booking systems, customer portals, internal tools and integrations for Australian small businesses, built by a software architect with 20+ years' experience.",
     eyebrow: "Custom software & web apps",
     h1: "Software that fits how your business works",
     lead: "Replace spreadsheets and double-handling with software built around how your business actually works. Led by a Chief Software Architect with 20+ years building web and mobile applications.",
@@ -168,7 +168,7 @@ export const services: Service[] = [
     short: "Secure hosting, backups, updates and monthly changes, looked after by a former AWS architect.",
     metaTitle: "Website Hosting & Care Plans Melbourne | Scikit",
     metaDescription:
-      "Secure website hosting, daily backups, updates, monitoring and monthly changes for Australian small businesses. Looked after by a former AWS Solutions Architect. From $99/month.",
+      "Secure website hosting, daily backups, updates and monthly changes for Australian small businesses, looked after by a former AWS architect. From $99/month.",
     eyebrow: "Hosting & care",
     h1: "Hosting and care for everything we build",
     lead: "Secure hosting, daily backups, updates and monitoring for your website, looked after by a former AWS Solutions Architect. You run your business; we keep your site fast, safe and online.",
@@ -243,7 +243,7 @@ export const services: Service[] = [
     core: false,
     body: "Email, files, backups and AWS/Azure set up properly.",
     short: "Email, files, backups and AWS/Azure set up properly.",
-    metaTitle: "Microsoft 365 & Cloud Setup for Small Business Melbourne | Scikit",
+    metaTitle: "Microsoft 365 & Cloud Setup Melbourne | Scikit",
     metaDescription:
       "Microsoft 365, Google Workspace, backups and AWS/Azure cloud set up properly for Australian small businesses, by a former AWS Solutions Architect.",
     eyebrow: "Cloud & Microsoft 365",
@@ -282,7 +282,7 @@ export const services: Service[] = [
     short: "Essential Eight-aligned protection for small businesses.",
     metaTitle: "Cyber Security for Small Business | Essential Eight | Scikit",
     metaDescription:
-      "Essential Eight-aligned cyber security for Australian small businesses. Security reviews, MFA, backups, email protection and staff training from an AWS Security Specialty certified architect.",
+      "Essential Eight-aligned cyber security for Australian small businesses: security reviews, MFA, backups, email protection and staff training.",
     eyebrow: "Cyber security",
     h1: "Practical protection for small businesses",
     lead: "Practical protection for small businesses, based on the Australian Government's Essential Eight. Led by an AWS Certified Security Specialist.",

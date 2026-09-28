@@ -40,7 +40,7 @@ export function AnnouncementBar() {
   return (
     <div className="flex flex-wrap justify-center gap-2 bg-charcoal px-5 py-2.5 text-center text-[13px] text-offwhite">
       <span>Free website &amp; SEO audit for Australian small businesses.</span>
-      <Link href="/contact" className="inline-flex items-center gap-1 font-medium text-orange hover:text-offwhite">
+      <Link href="/contact" className="relative after:absolute after:-inset-x-1 after:-inset-y-2.5 after:content-[''] inline-flex items-center gap-1 font-medium text-orange hover:text-offwhite">
         Get yours <Arrow className="size-3.5" />
       </Link>
     </div>
@@ -58,7 +58,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-20 border-b border-warm-100 bg-white/95 backdrop-blur-[10px]">
       <div className="container-site flex items-center justify-between gap-6 py-[18px]">
-        <Link href="/" className="flex shrink-0" aria-label="Scikit home">
+        <Link href="/" className="-my-2 flex shrink-0 py-2" aria-label="Scikit home">
           <Image src="/logos/scikit-wordmark.svg" alt="scikit" width={72} height={30} priority className="h-[30px] w-auto" />
         </Link>
 

@@ -6,13 +6,14 @@ import { Arrow, Dot, Eyebrow, PageTitle, Stop } from "@/components/site/primitiv
 import { coreServices, moreServices } from "@/content/services";
 import { Reveal } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Services | Web Design, SEO & More | Scikit",
   description:
     "Web design, SEO and hosting for Australian small businesses, plus custom software, apps, Microsoft 365, cyber security and AI from the same senior team.",
-  alternates: { canonical: "/services" },
-};
+  path: "/services",
+});
 
 const groupLabel = "text-[13px] font-semibold tracking-[0.14em] text-charcoal uppercase";
 

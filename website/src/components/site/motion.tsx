@@ -59,7 +59,7 @@ export function EdgeBeam({ dark = false, outside = false }: { dark?: boolean; ou
   );
   if (!outside) return beams;
   return (
-    <div aria-hidden className="pointer-events-none absolute -inset-[5px] rounded-[19px]">
+    <div aria-hidden className="pointer-events-none absolute -inset-[5px] overflow-hidden rounded-[19px]">
       {beams}
     </div>
   );

@@ -5,13 +5,14 @@ import { Eyebrow, PageTitle, Stop } from "@/components/site/primitives";
 import { carePlans, otherPrices, payment, seoPlans, webPlans } from "@/content/pricing";
 import { Reveal } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Pricing | Web Design & SEO Prices | Scikit",
   description:
     "Website design from $3,500, SEO from $790/month and hosting from $99/month. Clear, fixed prices for Australian small businesses. All prices AUD ex GST.",
-  alternates: { canonical: "/pricing" },
-};
+  path: "/pricing",
+});
 
 const h2 = "display m-0 text-[30px] tracking-[-0.03em]";
 

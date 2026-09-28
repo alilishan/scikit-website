@@ -14,19 +14,10 @@ const interTight = Inter_Tight({ subsets: ["latin"], weight: ["700"], variable: 
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: "Scikit | Web Design, Software & Cloud for Small Business in Melbourne",
-    template: "%s",
-  },
+  title: "Scikit | Web Design & Software Development Melbourne",
   description: site.description,
   applicationName: site.name,
-  openGraph: {
-    type: "website",
-    locale: "en_AU",
-    siteName: site.name,
-    url: site.url,
-  },
-  twitter: { card: "summary_large_image" },
+  // Each page sets its own canonical, Open Graph and Twitter tags via pageMeta() in src/lib/seo.ts.
 };
 
 const organization = {

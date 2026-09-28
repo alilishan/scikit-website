@@ -15,20 +15,20 @@ export function SiteFooter() {
             <p className="max-w-[260px] text-sm leading-relaxed text-body">{site.tagline}</p>
             <div className="text-[11px] tracking-[0.2em] text-tertiary">DIGITAL, BUILT PROPERLY.</div>
           </div>
-          <nav aria-label="Services" className="flex flex-col gap-2.5 text-sm">
-            <div className={colTitle}>Services</div>
+          <nav aria-label="Services" className="flex flex-col gap-0.5 text-sm">
+            <div className={`${colTitle} pb-2`}>Services</div>
             {services.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="hover:text-orange">
+              <Link key={s.slug} href={`/services/${s.slug}`} className="py-1 hover:text-orange">
                 {s.title}
               </Link>
             ))}
           </nav>
-          <nav aria-label="Company" className="flex flex-col gap-2.5 text-sm">
-            <div className={colTitle}>Company</div>
-            <Link href="/process" className="hover:text-orange">Process</Link>
-            <Link href="/pricing" className="hover:text-orange">Pricing</Link>
-            <Link href="/faq" className="hover:text-orange">FAQ</Link>
-            <Link href="/contact" className="hover:text-orange">Contact</Link>
+          <nav aria-label="Company" className="flex flex-col gap-0.5 text-sm">
+            <div className={`${colTitle} pb-2`}>Company</div>
+            <Link href="/process" className="py-1 hover:text-orange">Process</Link>
+            <Link href="/pricing" className="py-1 hover:text-orange">Pricing</Link>
+            <Link href="/faq" className="py-1 hover:text-orange">FAQ</Link>
+            <Link href="/contact" className="py-1 hover:text-orange">Contact</Link>
           </nav>
           <div className="flex flex-col gap-2.5 text-sm text-ink-soft">
             <div className={colTitle}>Contact</div>
@@ -36,12 +36,12 @@ export function SiteFooter() {
               {site.street && <span>{site.street}</span>}
               <span>{localityLine}</span>
               {site.phone && (
-                <a href={phoneHref} className="hover:text-orange">
+                <a href={phoneHref} className="py-1 hover:text-orange">
                   {site.phone}
                 </a>
               )}
               {site.email && (
-                <a href={emailHref} className="hover:text-orange">
+                <a href={emailHref} className="py-1 hover:text-orange">
                   {site.email}
                 </a>
               )}
@@ -66,8 +66,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Scikit · Melbourne, Australia{site.abn && ` · ABN ${site.abn}`}
           </span>
           <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-orange">Privacy</Link>
-            <Link href="/terms" className="hover:text-orange">Terms</Link>
+            <Link href="/privacy" className="py-1 hover:text-orange">Privacy</Link>
+            <Link href="/terms" className="py-1 hover:text-orange">Terms</Link>
           </div>
         </div>
       </div>

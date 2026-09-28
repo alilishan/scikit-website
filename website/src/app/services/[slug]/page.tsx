@@ -10,6 +10,7 @@ import { PlanCard } from "@/components/site/plan-card";
 import { Arrow, Eyebrow, PageTitle, Stop, TextLink } from "@/components/site/primitives";
 import { getService, services } from "@/content/services";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 import { Reveal } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
 
@@ -23,12 +24,7 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
   const { slug } = await props.params;
   const s = getService(slug);
   if (!s) return {};
-  return {
-    title: s.metaTitle,
-    description: s.metaDescription,
-    alternates: { canonical: `/services/${s.slug}` },
-    openGraph: { title: s.metaTitle, description: s.metaDescription, url: `/services/${s.slug}` },
-  };
+  return pageMeta({ title: s.metaTitle, description: s.metaDescription, path: `/services/${s.slug}` });
 }
 
 export default async function ServicePage(props: PageProps<"/services/[slug]">) {
@@ -44,11 +40,35 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
     provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
     areaServed: { "@type": "Country", name: "Australia" },
     url: `${site.url}/services/${s.slug}`,
+    // Starting prices, so search and AI tools can quote them accurately. AUD, ex GST.
+    offers: s.plans.map((p) => ({
+      "@type": "Offer",
+      name: p.name,
+      description: p.desc,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: Number(p.price.replace(/[^\d.]/g, "")),
+        priceCurrency: "AUD",
+        valueAddedTaxIncluded: false,
+        ...(p.prefix === "from" && { minPrice: Number(p.price.replace(/[^\d.]/g, "")) }),
+      },
+    })),
+  };
+
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+      { "@type": "ListItem", position: 3, name: s.title, item: `${site.url}/services/${s.slug}` },
+    ],
   };
 
   return (
     <>
       <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbs} />
       {s.faqs && (
         <JsonLd
           data={{

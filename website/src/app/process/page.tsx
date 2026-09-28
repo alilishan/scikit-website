@@ -4,13 +4,14 @@ import { Eyebrow, PageTitle, Stop } from "@/components/site/primitives";
 import { promises, steps } from "@/content/home";
 import { Reveal } from "@/components/site/motion";
 import { stagger } from "@/lib/stagger";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Our Process | Web Design & SEO | Scikit",
   description:
     "How Scikit builds websites and runs SEO for Australian small businesses. Audit, plan, build, launch and grow, with fixed prices and weekly updates.",
-  alternates: { canonical: "/process" },
-};
+  path: "/process",
+});
 
 export default function ProcessPage() {
   return (

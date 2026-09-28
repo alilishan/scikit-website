@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 import { Eyebrow, Stop } from "@/components/site/primitives";
-import { addressLine, emailHref, phoneHref, site } from "@/lib/site";
+import { addressLine, emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 import { ContactForm } from "./contact-form";
 import { Reveal } from "@/components/site/motion";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Start a Project | Contact Scikit, Melbourne",
   description:
     "Start a website or SEO project with Scikit, or get a free website & SEO audit. Melbourne-based, working Australia-wide. We reply within one business day.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 // Rows without a value (e.g. no phone set yet) are left out.
 const rows = [
   { k: "Email", v: site.email, href: emailHref },
   { k: "Phone", v: site.phone, href: phoneHref },
-  { k: "Chat", v: site.whatsapp || site.phone ? "WhatsApp / SMS" : "" },
+  { k: "WhatsApp", v: site.whatsapp ? "Message us on WhatsApp" : "", href: whatsappHref },
   { k: "Office", v: addressLine },
   { k: "Hours", v: site.hours },
 ].filter((r) => r.v);

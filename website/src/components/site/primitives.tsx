@@ -43,7 +43,7 @@ export function SectionTitle({ children, className, as: Tag = "h2" }: { children
 
 export function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="inline-flex items-center gap-1.5 border-b border-warm-400 pb-[3px] text-[15px] font-medium hover:text-orange">
+    <Link href={href} className="relative after:absolute after:-inset-x-1 after:-inset-y-2.5 after:content-[''] inline-flex items-center gap-1.5 border-b border-warm-400 pb-[3px] text-[15px] font-medium hover:text-orange">
       {children}
     </Link>
   );

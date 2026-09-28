@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/site/legal-page";
 import { addressLine, site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy | Scikit",
   description:
     "How Scikit collects, uses, stores and protects personal information in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.",
-  alternates: { canonical: "/privacy" },
-};
+  path: "/privacy",
+});
 
 // DRAFT: have this reviewed before launch. Not legal advice.
 export default function PrivacyPage() {

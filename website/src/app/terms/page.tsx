@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/site/legal-page";
 import { site } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Website Terms of Use | Scikit",
-  description: "Terms of use for the Scikit website.",
-  alternates: { canonical: "/terms" },
-};
+  description:
+    "The terms of use for the Scikit website: how our published prices, content and intellectual property apply, and which laws govern them.",
+  path: "/terms",
+});
 
 // DRAFT: have this reviewed before launch. Covers website use only; client work needs a separate services agreement.
 export default function TermsPage() {
