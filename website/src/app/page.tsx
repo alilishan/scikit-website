@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { CtaBlock } from "@/components/site/cta-block";
 import { FaqList } from "@/components/site/faq-list";
@@ -13,6 +12,8 @@ import { coreServices, moreServices } from "@/content/services";
 import { homeFaqs } from "@/content/faqs";
 import { Marquee } from "@/components/ui/marquee";
 import { ConnectBeam } from "@/components/site/connect-beam";
+import { HeroVisual } from "@/components/site/hero-visual";
+import { ChartNoAxesColumnIncreasingIcon, ShieldCheckIcon, ZapIcon } from "lucide-react";
 import { WorkGrid } from "@/components/site/work-grid";
 import { work } from "@/content/work";
 import { EdgeBeam, Reveal, RevealLines } from "@/components/site/motion";
@@ -49,9 +50,15 @@ export default function HomePage() {
   );
 }
 
+const benefits = [
+  { icon: ChartNoAxesColumnIncreasingIcon, title: "More visibility", body: "Get found on Google" },
+  { icon: ZapIcon, title: "Better efficiency", body: "Tools that fit your workflow" },
+  { icon: ShieldCheckIcon, title: "Long-term support", body: "Secure, reliable and scalable" },
+];
+
 function Hero() {
   return (
-    <section className="container-site auto-grid items-center gap-14 pt-[72px] pb-[88px] [--min:360px]">
+    <section className="container-site grid items-center gap-x-10 gap-y-14 pt-[72px] pb-[88px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
       <div className="flex flex-col gap-[26px]">
         <Reveal onLoad>
           <Eyebrow dot>Web design &amp; software development · Melbourne</Eyebrow>
@@ -82,50 +89,22 @@ function Hero() {
             See our offer
           </a>
         </Reveal>
+        <Reveal onLoad delay={0.75}>
+          <ul className="m-0 flex list-none flex-col gap-x-8 gap-y-4 p-0 pt-3 sm:flex-row sm:flex-wrap">
+            {benefits.map((b) => (
+              <li key={b.title} className="flex items-start gap-3">
+                <b.icon aria-hidden className="mt-0.5 size-6 shrink-0 text-charcoal" strokeWidth={1.75} />
+                <span className="flex flex-col">
+                  <span className="text-[15px] font-semibold whitespace-nowrap">{b.title}</span>
+                  <span className="text-[13px] whitespace-nowrap text-body">{b.body}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
-      <Reveal onLoad delay={0.3} offset={30}>
-        <Laptop />
-      </Reveal>
+      <HeroVisual />
     </section>
-  );
-}
-
-/** CSS-built angled laptop from the design. Swap for a real photo or render when available. */
-function Laptop() {
-  return (
-    <div aria-hidden className="flex justify-center pt-2.5 pb-5 [perspective:1600px]">
-      <div className="flex w-[86%] max-w-[580px] flex-col items-center [transform:rotateY(-18deg)_rotateX(7deg)_rotateZ(1.5deg)] sm:w-full">
-        <div className="box-border aspect-[16/10] w-full rounded-t-2xl rounded-b-[4px] bg-[#1A1A1A] p-[3.2%] shadow-[0_50px_70px_-34px_rgba(0,0,0,0.5),inset_0_0_0_1px_#3A3A3A]">
-          <div className="grid h-full w-full grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] overflow-hidden rounded-[3px] bg-offwhite">
-            <div className="flex flex-col gap-[14%] px-[8%] py-[7%]">
-              <Image src="/logos/scikit-wordmark.svg" alt="" width={72} height={30} className="h-auto w-[30%]" />
-              <div className="flex flex-col gap-2.5">
-                <div className="display text-[clamp(14px,2.1vw,28px)] leading-none tracking-[-0.03em]">
-                  Ideas into digital products.
-                </div>
-                <div className="h-[3px] w-[70%] bg-warm-200" />
-                <div className="flex">
-                  <span className="inline-flex items-center gap-0.5 rounded-full bg-orange px-2.5 py-1 text-[8px] font-medium text-white">Let&apos;s talk <Arrow className="size-2" /></span>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex justify-end gap-2 px-[8%] pt-[7%] pb-[4%] text-[7px]">
-                <span>Work</span>
-                <span>Services</span>
-                <span>About</span>
-              </div>
-              <div className="flex flex-1 items-center justify-center bg-[repeating-linear-gradient(135deg,#3A3A3A_0_8px,#444_8px_16px)]">
-                <span className="font-mono text-[8px] tracking-[0.12em] text-warm-400">PROJECT PHOTO</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="relative h-3.5 w-[116%] rounded-t-[2px] rounded-b-xl bg-[linear-gradient(180deg,#8E8E8E,#5A5A5A)] shadow-[0_18px_30px_-10px_rgba(0,0,0,0.4)]">
-          <div className="absolute top-0 left-1/2 h-[5px] w-[16%] -translate-x-1/2 rounded-b-md bg-[#6E6E6E]" />
-        </div>
-      </div>
-    </div>
   );
 }
 
