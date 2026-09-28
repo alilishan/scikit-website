@@ -82,9 +82,9 @@ type LayerSpec = {
 };
 
 const LAYERS: LayerSpec[] = [
-  { key: "design", u0: 0.02, u1: 0.98, v0: -1.03, aspect: 16 / 8.4, lift: { scale: 1.06, dx: -6, dy: -2 } },
-  { key: "code", u0: 0.05, u1: 0.95, v0: -0.16, aspect: 16 / 6, lift: { scale: 1.09, dx: -7, dy: -2.5 } },
-  { key: "deploy", u0: 0.03, u1: 0.97, v0: 0.5, aspect: 16 / 4.6, lift: { scale: 1.12, dx: -8, dy: -1 } },
+  { key: "design", u0: 0.02, u1: 0.98, v0: -0.88, aspect: 16 / 8.4, lift: { scale: 1.06, dx: -6, dy: -2 } },
+  { key: "code", u0: 0.05, u1: 0.95, v0: -0.2, aspect: 16 / 7.4, lift: { scale: 1.09, dx: -7, dy: -2.5 } },
+  { key: "deploy", u0: 0.03, u1: 0.97, v0: 0.38, aspect: 16 / 4.6, lift: { scale: 1.12, dx: -8, dy: -1 } },
 ];
 
 type LayerGeo = { width: number; height: number; transform: string; right: Pt; top: Pt };
@@ -246,8 +246,8 @@ function DesignLayer() {
 /** Develop layer: the code behind it. */
 function CodeLayer() {
   return (
-    <div className="grid h-full w-full grid-cols-[30%_1fr] overflow-hidden rounded-[1.6cqw] bg-[#161616] font-mono text-[1.25cqw] leading-[1.7] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
-      <div className="flex flex-col border-r border-white/10 px-[9%] py-[8%] text-[#8A8A8A]">
+    <div className="grid h-full w-full grid-cols-[30%_1fr] items-end overflow-hidden rounded-[1.6cqw] bg-[#161616] font-mono text-[1.25cqw] leading-[1.7] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+      <div className="flex h-full flex-col justify-end border-r border-white/10 px-[9%] py-[8%] text-[#8A8A8A]">
         {["src", "components", "pages", "styles", "public", "package.json"].map((f, i) => (
           <span key={f} className={cn("truncate", i === 0 && "text-[#C9C7C2]", i > 0 && i < 4 && "pl-[12%]")}>
             {i < 5 ? "▸ " : "  "}
