@@ -43,7 +43,7 @@ Search the folder for `[[` to find every one.
 
 - `[[ABN]]` — register at abr.gov.au (and ACN if you incorporate as a Pty Ltd)
 - `[[PHONE]]` — a business number (a 1300 number or a dedicated mobile, not a personal one)
-- `[[EMAIL]]` — suggest hello@scikit.com.au
+- `[[EMAIL]]` — info@scikit.com.au (confirmed)
 - `[[STREET ADDRESS]]` — or a virtual office / PO box; Melbourne is used as the city throughout
 - Domain: **scikit.com.au** (confirmed)
 - `[[LINKEDIN]]`
