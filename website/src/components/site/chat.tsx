@@ -58,7 +58,7 @@ export function ChatWidget() {
           </div>
           <div className="flex flex-col gap-2.5 px-5 py-[18px]">
             <div className="rounded-[10px] bg-offwhite px-3.5 py-3 text-sm leading-normal">
-              Hi! Tell us what you&apos;re working on and Ali or Hassan will get back to you.
+              Hi! Tell us what you&apos;re working on and Hassan or Ali will get back to you.
             </div>
             {whatsappHref && (
               <a

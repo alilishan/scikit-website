@@ -40,8 +40,8 @@ const organization = {
   },
   ...(site.social.length > 0 && { sameAs: site.social.map((s) => s.href) }),
   founder: [
-    { "@type": "Person", name: "Ali Lishan", jobTitle: "Co-founder, Web design & development", image: `${site.url}/team/ali-lishan.webp` },
     { "@type": "Person", name: "Hassan Sheikh", jobTitle: "Co-founder, Hosting & security", image: `${site.url}/team/hassan-sheikh.webp` },
+    { "@type": "Person", name: "Ali Lishan", jobTitle: "Co-founder, Web design & development", image: `${site.url}/team/ali-lishan.webp` },
   ],
 };
 

@@ -35,7 +35,7 @@ function EnquiryForm({ onReset }: { onReset: () => void }) {
           <CheckIcon strokeWidth={3} className="size-6" />
         </span>
         <h2 className="display m-0 text-[30px] tracking-[-0.03em]">Thanks! We&apos;ve got it.</h2>
-        <p className="m-0 text-base leading-[1.6] text-body">Ali or Hassan will be in touch within one business day.</p>
+        <p className="m-0 text-base leading-[1.6] text-body">Hassan or Ali will be in touch within one business day.</p>
         <button type="button" onClick={onReset} className="cursor-pointer p-0 text-sm text-label underline">
           Send another enquiry
         </button>
