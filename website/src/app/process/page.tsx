@@ -29,7 +29,7 @@ export default function ProcessPage() {
           <li key={st.num} className="border-t border-warm-200">
             <Reveal className="auto-grid gap-x-12 gap-y-5 py-10 [--min:280px]">
             <h2 className="m-0 flex items-baseline gap-5">
-              <span className="display text-[44px] tracking-[-0.03em] text-orange">{st.num}</span>
+              <span className="display text-[44px] tracking-[-0.03em] text-orange-ink">{st.num}</span>
               <span className="display text-[30px] tracking-[-0.03em]">{st.title}</span>
             </h2>
             <div className="flex flex-col gap-3.5">

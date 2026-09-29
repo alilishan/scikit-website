@@ -13,7 +13,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Image src="/logos/scikit-wordmark.svg" alt="scikit" width={72} height={30} className="h-[30px] w-auto self-start" />
             <p className="max-w-[260px] text-sm leading-relaxed text-body">{site.tagline}</p>
-            <div className="text-[11px] tracking-[0.2em] text-tertiary">DIGITAL, BUILT PROPERLY.</div>
+            <div className="text-[11px] tracking-[0.2em] text-label">DIGITAL, BUILT PROPERLY.</div>
           </div>
           <nav aria-label="Services" className="flex flex-col gap-0.5 text-sm">
             <div className={`${colTitle} pb-2`}>Services</div>

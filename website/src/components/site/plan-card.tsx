@@ -25,7 +25,7 @@ export function PlanCard({ name, price, prefix, suffix, desc, features, popular 
       <div className="flex items-center justify-between gap-2.5">
         <h3 className="display m-0 text-[22px]">{name}</h3>
         {popular && (
-          <span className="rounded-full bg-orange px-2.5 py-[5px] text-[11px] tracking-[0.14em] text-white">MOST POPULAR</span>
+          <span className="rounded-full bg-orange px-2.5 py-[5px] text-[11px] tracking-[0.14em] text-charcoal">MOST POPULAR</span>
         )}
       </div>
       <div className="flex flex-wrap items-baseline gap-2">
