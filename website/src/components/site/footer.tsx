@@ -2,6 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { services } from "@/content/services";
 import { emailHref, localityLine, phoneHref, site } from "@/lib/site";
+import pkg from "../../../package.json";
+
+// Site version: package.json version plus the git commit Vercel built from (set at build time).
+const commit = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
+const version = `v${pkg.version}${commit ? ` · ${commit}` : ""}`;
 
 const colTitle = "pb-1 text-xs tracking-[0.16em] text-label uppercase";
 
@@ -65,9 +70,10 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} Scikit · Melbourne, Australia{site.abn && ` · ABN ${site.abn}`}
           </span>
-          <div className="flex gap-5">
+          <div className="flex items-center gap-5">
             <Link href="/privacy" className="py-1 hover:text-orange">Privacy</Link>
             <Link href="/terms" className="py-1 hover:text-orange">Terms</Link>
+            <span title="Site version">{version}</span>
           </div>
         </div>
       </div>
