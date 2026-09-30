@@ -1,0 +1,239 @@
+# Scikit audit rules. Edit freely: changing this file and running with --render-only
+# re-scores a stored audit without calling any API again.
+#
+# `when` can use: dotted lookups into the metrics (speed.mobile.lcp_s, ranking.terms_in_top10,
+# gbp.reviews, security.cert_days, page.title_len) and thresholds.*; numbers, strings,
+# True/False/None; < <= > >= == != is; and / or / not.
+# If a lookup hits a metric that's missing (check failed or skipped), the finding doesn't fire.
+# `text` is what the client reads. {dotted.path} inserts a value.
+
+budget:
+  serpapi_monthly_limit: 250   # SerpApi Free Plan = 250 searches/month
+  reaudit_after_days: 30
+
+limits:
+  ranking_terms: 5
+  competitors_shown: 3
+  fixes: 3
+
+ai:
+  model: claude-opus-5-5
+
+report:
+  website: scikit.com.au
+  email: info@scikit.com.au
+  cta: "Book a free 20-minute call"
+  cta_url: https://scikit.com.au/contact
+
+thresholds:
+  lcp_s:       { good: 2.5, poor: 4.0 }   # Google's Core Web Vitals cut-offs
+  cls:         { good: 0.1, poor: 0.25 }
+  inp_ms:      { good: 200, poor: 500 }
+  perf_score:  { good: 90,  poor: 50 }
+  cert_days:   { warn: 30,  fail: 7 }
+  gbp_reviews: { warn: 20 }
+  gbp_rating:  { warn: 4.2 }
+
+findings:
+  # --- 01 Speed & mobile -------------------------------------------------------------------
+  - id: slow_mobile_lcp
+    section: speed
+    severity: high
+    when: "speed.mobile.lcp_s > thresholds.lcp_s.poor"
+    text: "Your homepage takes {speed.mobile.lcp_s}s to show its main content on a phone. Google's target is under 2.5s, and most visitors leave before 4s."
+  - id: mobile_lcp_needs_work
+    section: speed
+    severity: medium
+    when: "speed.mobile.lcp_s > thresholds.lcp_s.good and speed.mobile.lcp_s <= thresholds.lcp_s.poor"
+    text: "On a phone your main content appears in {speed.mobile.lcp_s}s. That's close, but still slower than Google's 2.5s target."
+  - id: layout_shift
+    section: speed
+    severity: high
+    when: "speed.mobile.cls > thresholds.cls.poor"
+    text: "Parts of your page jump around while it loads (layout shift score {speed.mobile.cls}). People tap the wrong thing, and Google counts it against you."
+  - id: layout_shift_minor
+    section: speed
+    severity: low
+    when: "speed.mobile.cls > thresholds.cls.good and speed.mobile.cls <= thresholds.cls.poor"
+    text: "Some content moves slightly while the page loads (layout shift score {speed.mobile.cls}; Google's target is under 0.1)."
+  - id: slow_interaction
+    section: speed
+    severity: high
+    when: "speed.mobile.inp_ms > thresholds.inp_ms.poor"
+    text: "Real visitors wait {speed.mobile.inp_ms}ms for the page to react when they tap. Google's target is under 200ms."
+  - id: low_mobile_score
+    section: speed
+    severity: high
+    when: "speed.mobile.performance < thresholds.perf_score.poor"
+    text: "Your mobile speed score is {speed.mobile.performance}/100. Most of your visitors are on phones, and Google ranks the mobile version of your site."
+  - id: mobile_score_needs_work
+    section: speed
+    severity: medium
+    when: "speed.mobile.performance >= thresholds.perf_score.poor and speed.mobile.performance < thresholds.perf_score.good"
+    text: "Your mobile speed score is {speed.mobile.performance}/100, so there's room to get into the green (90+)."
+  - id: no_viewport
+    section: speed
+    severity: high
+    when: "not page.has_viewport"
+    text: "Your site isn't set up for phones (no mobile viewport), so it shows as a shrunken desktop page."
+  - id: low_accessibility
+    section: speed
+    severity: low
+    when: "speed.mobile.accessibility < 80"
+    text: "Your accessibility score is {speed.mobile.accessibility}/100. Some visitors will struggle to read or use the page."
+
+  # --- 02 Search -----------------------------------------------------------------------------
+  - id: noindex
+    section: ranking
+    severity: high
+    when: "page.noindex"
+    text: "Your homepage tells Google not to list it (a 'noindex' tag). It can't rank until that's removed."
+  - id: not_ranking
+    section: ranking
+    severity: high
+    when: "ranking.terms_in_top10 < 2"
+    text: "You're on page 1 of Google for only {ranking.terms_in_top10} of {ranking.terms_count} searches your customers use."
+  - id: page_one_not_top
+    section: ranking
+    severity: medium
+    when: "ranking.terms_in_top10 >= 2 and ranking.terms_in_top3 == 0"
+    text: "You're on page 1 for {ranking.terms_in_top10} searches, but not in the top 3 for any. Most clicks go to the top 3."
+  - id: competitor_dominates
+    section: ranking
+    severity: medium
+    when: "ranking.top_competitor_count >= 3"
+    text: "{ranking.top_competitor} shows up for {ranking.top_competitor_count} of your {ranking.terms_count} searches."
+  - id: missing_from_map_pack
+    section: ranking
+    severity: high
+    when: "ranking.local_pack_seen >= 1 and ranking.in_local_pack_count == 0"
+    text: "Google shows a map with local businesses for {ranking.local_pack_seen} of your searches, and you're not in it."
+  - id: no_title
+    section: ranking
+    severity: high
+    when: "page.title_len == 0"
+    text: "Your homepage has no page title, which is the headline Google shows in search results."
+  - id: long_title
+    section: ranking
+    severity: low
+    when: "page.title_len > 65"
+    text: "Your page title is {page.title_len} characters, so Google cuts it off in results. Aim for under 60."
+  - id: no_meta_description
+    section: ranking
+    severity: medium
+    when: "page.meta_desc_len == 0"
+    text: "There's no search description, so Google picks random text from your page to show under your name."
+  - id: h1_problem
+    section: ranking
+    severity: low
+    when: "page.h1_count != 1"
+    text: "Your homepage has {page.h1_count} main headings (H1). It should have exactly one that says what you do and where."
+  - id: no_local_schema
+    section: ranking
+    severity: low
+    when: "not page.has_local_schema"
+    text: "Your site doesn't give Google your business details in a form it can read (LocalBusiness schema)."
+
+  # --- 03 Google Business Profile --------------------------------------------------------------
+  - id: gbp_missing
+    section: gbp
+    severity: high
+    when: "gbp.found == False"
+    text: "We couldn't find a Google Business Profile for you. That's the listing that shows on Google Maps and in the local map results."
+  - id: gbp_unclaimed
+    section: gbp
+    severity: high
+    when: "gbp.found and gbp.claimed is False"
+    text: "Your Google Business Profile hasn't been claimed, so anyone can suggest changes to it and you can't reply to reviews."
+  - id: gbp_no_website
+    section: gbp
+    severity: high
+    when: "gbp.found and not gbp.has_website"
+    text: "Your Google Business Profile doesn't link to your website."
+  - id: gbp_few_reviews
+    section: gbp
+    severity: medium
+    when: "gbp.found and gbp.reviews < thresholds.gbp_reviews.warn"
+    text: "You have {gbp.reviews} Google reviews. Businesses that show up in the map results usually have 20 or more."
+  - id: gbp_low_rating
+    section: gbp
+    severity: medium
+    when: "gbp.found and gbp.rating < thresholds.gbp_rating.warn"
+    text: "Your Google rating is {gbp.rating}. Below about 4.2, people tend to pick the next business."
+  - id: gbp_no_hours
+    section: gbp
+    severity: medium
+    when: "gbp.found and not gbp.has_hours"
+    text: "Your Google Business Profile has no opening hours, so Google may show you as closed or leave you out."
+  - id: gbp_no_photos
+    section: gbp
+    severity: low
+    when: "gbp.found and not gbp.has_photos"
+    text: "Your Google Business Profile has no photos. Listings with photos get far more clicks."
+
+  # --- 04 Security & backups ---------------------------------------------------------------
+  - id: no_https
+    section: security
+    severity: high
+    when: "not security.https"
+    text: "Your site doesn't use HTTPS, so browsers mark it 'Not secure'."
+  - id: no_https_redirect
+    section: security
+    severity: medium
+    when: "security.https and security.http_redirects_to_https == False"
+    text: "Visitors who type your address without https:// get an insecure version of your site."
+  - id: cert_expiring
+    section: security
+    severity: high
+    when: "security.cert_days is not None and security.cert_days < thresholds.cert_days.fail"
+    text: "Your security certificate expires in {security.cert_days} days. When it does, browsers will block your site."
+  - id: cert_expiring_soon
+    section: security
+    severity: medium
+    when: "security.cert_days is not None and security.cert_days >= thresholds.cert_days.fail and security.cert_days < thresholds.cert_days.warn"
+    text: "Your security certificate expires in {security.cert_days} days. Check it's set to renew automatically."
+  - id: git_exposed
+    section: security
+    severity: high
+    when: "security.git_exposed"
+    text: "Your site's source code history (/.git) is publicly downloadable. It can contain passwords."
+  - id: env_exposed
+    section: security
+    severity: high
+    when: "security.env_exposed"
+    text: "A settings file (/.env) is publicly readable. These usually hold passwords and keys."
+  - id: missing_headers
+    section: security
+    severity: medium
+    when: "security.headers_missing >= 3"
+    text: "{security.headers_missing} of 5 standard browser security settings (security headers) are missing."
+  - id: some_headers_missing
+    section: security
+    severity: low
+    when: "security.headers_missing >= 1 and security.headers_missing < 3"
+    text: "{security.headers_missing} of 5 standard browser security settings (security headers) are missing."
+  - id: mixed_content
+    section: security
+    severity: medium
+    when: "security.mixed_content > 0"
+    text: "Some images or scripts ({security.mixed_content}) still load over insecure http://, which can trigger browser warnings."
+  - id: dir_listing
+    section: security
+    severity: medium
+    when: "security.dir_listing"
+    text: "Anyone can browse the full list of files you've uploaded to your site."
+  - id: wp_readme
+    section: security
+    severity: low
+    when: "security.wp_readme"
+    text: "Your WordPress version is publicly visible, which makes it easy to target known weaknesses."
+  - id: xmlrpc_open
+    section: security
+    severity: low
+    when: "security.xmlrpc_open"
+    text: "WordPress's XML-RPC login is switched on, a common target for password-guessing attacks."
+  - id: server_leak
+    section: security
+    severity: low
+    when: "security.server_leak"
+    text: "Your server announces its software versions ({security.server_header})."

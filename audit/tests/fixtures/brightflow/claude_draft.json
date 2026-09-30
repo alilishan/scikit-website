@@ -1,0 +1,17 @@
+{
+ "summary": "Your site loads slowly on phones and you're missing from Google's map results for the searches that matter most. The good news: the fixes are straightforward, and your 14 reviews at 4.6 stars are a solid base to build on.",
+ "fixes": [
+  {
+   "title": "Make the homepage load in under 2.5 seconds",
+   "detail": "Compress the large photos and trim the WordPress plugins so the page shows in about 2 seconds on a phone instead of 5.2."
+  },
+  {
+   "title": "Get into the Google map results",
+   "detail": "Fill in your Business Profile hours and ask recent customers for reviews, so you appear in the map for 'plumber richmond' where Pipe Pros sits now."
+  },
+  {
+   "title": "Renew the certificate and update WordPress",
+   "detail": "Your security certificate runs out in 21 days and WordPress 6.2 is out of date; we'd update both and turn on automatic renewals."
+  }
+ ]
+}

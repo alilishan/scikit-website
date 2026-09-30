@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website & SEO Audit · {{ domain }}</title>
+<style>
+@font-face { font-family: "Inter"; src: url("{{ brand }}/fonts/Inter.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Inter Tight"; src: url("{{ brand }}/fonts/InterTight.ttf") format("truetype"); font-weight: 100 900; }
+{% include "report.css" %}
+</style>
+</head>
+<body>
+{% macro gauge(g) -%}
+  {%- set pct = (g.score or 0) / 100 -%}
+  <div class="gauge g-{{ g.grade }}">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="27" class="track"/>
+      <circle cx="32" cy="32" r="27" class="arc" stroke-dasharray="{{ (169.65 * pct)|round(2) }} 169.65" transform="rotate(-90 32 32)"/>
+    </svg>
+    <div class="gauge-num">{{ g.score if g.score is not none else "–" }}</div>
+    <div class="gauge-label">{{ g.label }}</div>
+  </div>
+{%- endmacro %}
+{% macro chip(grade) -%}<span class="chip c-{{ grade }}">{{ grade_label[grade] }}</span>{%- endmacro %}
+{% macro mark(grade) -%}<span class="mark m-{{ grade }}" aria-hidden="true">{% if grade == "pass" %}✓{% elif grade == "fail" %}✕{% elif grade == "info" %}?{% else %}!{% endif %}</span>{%- endmacro %}
+{% macro not_checked() -%}<p class="not-checked">Not checked this time. We'll cover it in your video walkthrough.</p>{%- endmacro %}
+{% macro note(section) -%}{% if notes[section] %}<p class="note">{{ notes[section] }}</p>{% endif %}{%- endmacro %}
+
+<main class="page">
+  <header class="head">
+    <div class="logo">{{ logo_svg|safe }}</div>
+    <div class="head-meta">
+      <div class="eyebrow">FREE WEBSITE &amp; SEO AUDIT</div>
+      <h1>{{ business }}</h1>
+      <div class="sub">{{ domain }} · {{ date }}{% if location %} · {{ location }}{% endif %}</div>
+    </div>
+  </header>
+
+  {% if summary %}
+  <section class="summary">
+    <p>{{ summary }}</p>
+  </section>
+  {% endif %}
+
+  <div class="grid">
+    <section class="card">
+      <h2><span class="num">01</span> Speed &amp; mobile</h2>
+      {% if speed %}
+        <div class="gauges">{% for g in speed.gauges %}{{ gauge(g) }}{% endfor %}</div>
+        <table class="vitals">
+          {% for v in speed.vitals %}
+          <tr>
+            <td>{{ v.label }} <span class="abbr">{{ v.abbr }}</span></td>
+            <td class="val">{{ v.value }}</td>
+            <td class="r">{{ chip(v.grade) }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <p class="fine">Google's Core Web Vitals, measured on {{ speed.source }}.</p>
+        {% if speed.slowdowns %}
+        <div class="slow"><div class="eyebrow">BIGGEST SLOW-DOWNS</div>
+          <ul>{% for s in speed.slowdowns %}<li>{{ s }}</li>{% endfor %}</ul></div>
+        {% endif %}
+        {{ note("speed") }}
+      {% else %}{{ not_checked() }}{% endif %}
+    </section>
+
+    <section class="card">
+      <h2><span class="num">02</span> Where you rank on Google</h2>
+      {% if ranking %}
+        <p class="lede"><strong>{{ ranking.in_top10 }} of {{ ranking.count }}</strong> searches have you on page 1.</p>
+        <table class="ranks">
+          {% for r in ranking.rows %}
+          <tr>
+            <td>
+              <div class="term">{{ r.term }}</div>
+              {% if r.competitors %}<div class="comp">Top: {{ r.competitors|join(", ") }}</div>{% endif %}
+            </td>
+            <td class="r"><span class="pos p-{{ r.grade }}">{{ r.position }}</span></td>
+          </tr>
+          {% endfor %}
+        </table>
+        {{ note("ranking") }}
+      {% else %}{{ not_checked() }}{% endif %}
+    </section>
+
+    <section class="card">
+      <h2><span class="num">03</span> Google Business Profile</h2>
+      {% if gbp and gbp.found %}
+        <div class="gbp-head">
+          <div class="stars"><span class="big">{{ gbp.rating if gbp.rating is not none else "–" }}</span> ★</div>
+          <div><div class="term">{{ gbp.name }}</div><div class="comp">{{ gbp.category or "" }}{% if gbp.category %} · {% endif %}{{ gbp.reviews }} reviews</div></div>
+        </div>
+        <ul class="checks">
+          {% for c in gbp.checklist %}<li>{{ mark(c.grade) }}{{ c.label }}</li>{% endfor %}
+        </ul>
+        {{ note("gbp") }}
+      {% elif gbp %}
+        <div class="empty-state">{{ mark("fail") }} <strong>No Google Business Profile found.</strong></div>
+        {{ note("gbp") }}
+      {% else %}{{ not_checked() }}{% endif %}
+    </section>
+
+    <section class="card">
+      <h2><span class="num">04</span> Security &amp; backups</h2>
+      {% if security %}
+        <ul class="checks">
+          {% for c in security.checks %}<li>{{ mark(c.grade) }}{{ c.label }}{% if c.note %} <span class="comp">· {{ c.note }}</span>{% endif %}</li>{% endfor %}
+        </ul>
+        {% if security.cms %}<p class="fine">Built with {{ security.cms }}.</p>{% endif %}
+        {{ note("security") }}
+      {% else %}{{ not_checked() }}{% endif %}
+    </section>
+  </div>
+
+  <section class="fixes">
+    <h2><span class="num">05</span> The three things we'd fix first</h2>
+    <ol>
+      {% for f in fixes %}
+      <li><strong>{{ f.title }}</strong><span>{{ f.detail }}</span></li>
+      {% endfor %}
+    </ol>
+    <p class="noob">No obligation. We're happy to walk you through any of this.</p>
+  </section>
+
+  <footer class="foot">
+    <div>{{ report.website }} · {{ report.email }}</div>
+    <a href="{{ report.cta_url }}">{{ report.cta }} →</a>
+  </footer>
+</main>
+</body>
+</html>

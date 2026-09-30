@@ -1,0 +1,47 @@
+{
+ "https://brightflowplumbing.com.au/": {
+  "status": 200,
+  "url": "https://brightflowplumbing.com.au/",
+  "headers": {
+   "content-type": "text/html; charset=UTF-8",
+   "server": "Apache/2.4.41 (Ubuntu)",
+   "x-powered-by": "PHP/7.4.3",
+   "x-content-type-options": "nosniff"
+  },
+  "text": "<!doctype html><html><head><title>Brightflow Plumbing | Plumber Richmond | Blocked Drains, Hot Water &amp; Emergency Plumbing Melbourne</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"generator\" content=\"WordPress 6.2.2\">\n<link rel=\"stylesheet\" href=\"/wp-content/themes/flow/style.css?ver=6.2.2\"></head><body>\n<h1>Richmond's Local Plumber</h1><h1>24/7 Emergency Plumbing</h1>\n<h2>Blocked drains</h2><h2>Hot water repairs</h2><h2>Gas fitting</h2>\n<p>Brightflow Plumbing is a family-run plumber based in Richmond, Victoria, servicing Melbourne's inner east since 2009.</p>\n<img src=\"http://brightflowplumbing.com.au/wp-content/uploads/van.jpg\"><img src=\"/wp-content/uploads/team.jpg\">\n<p>Call 03 9000 0000</p></body></html>",
+  "history": []
+ },
+ "http://brightflowplumbing.com.au/": {
+  "status": 200,
+  "url": "http://brightflowplumbing.com.au/",
+  "headers": {
+   "content-type": "text/html; charset=UTF-8",
+   "server": "Apache/2.4.41 (Ubuntu)",
+   "x-powered-by": "PHP/7.4.3",
+   "x-content-type-options": "nosniff"
+  },
+  "text": "<!doctype html><html><head><title>Brightflow Plumbing | Plumber Richmond | Blocked Drains, Hot Water &amp; Emergency Plumbing Melbourne</title>\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"generator\" content=\"WordPress 6.2.2\">\n<link rel=\"stylesheet\" href=\"/wp-content/themes/flow/style.css?ver=6.2.2\"></head><body>\n<h1>Richmond's Local Plumber</h1><h1>24/7 Emergency Plumbing</h1>\n<h2>Blocked drains</h2><h2>Hot water repairs</h2><h2>Gas fitting</h2>\n<p>Brightflow Plumbing is a family-run plumber based in Richmond, Victoria, servicing Melbourne's inner east since 2009.</p>\n<img src=\"http://brightflowplumbing.com.au/wp-content/uploads/van.jpg\"><img src=\"/wp-content/uploads/team.jpg\">\n<p>Call 03 9000 0000</p></body></html>",
+  "history": []
+ },
+ "https://brightflowplumbing.com.au/readme.html": {
+  "status": 200,
+  "url": "https://brightflowplumbing.com.au/readme.html",
+  "headers": {},
+  "text": "<html><title>WordPress &rsaquo; ReadMe</title></html>",
+  "history": []
+ },
+ "https://brightflowplumbing.com.au/xmlrpc.php": {
+  "status": 405,
+  "url": "https://brightflowplumbing.com.au/xmlrpc.php",
+  "headers": {},
+  "text": "XML-RPC server accepts POST requests only.",
+  "history": []
+ },
+ "https://brightflowplumbing.com.au/wp-login.php": {
+  "status": 200,
+  "url": "https://brightflowplumbing.com.au/wp-login.php",
+  "headers": {},
+  "text": "<input id=\"user_login\">",
+  "history": []
+ }
+}

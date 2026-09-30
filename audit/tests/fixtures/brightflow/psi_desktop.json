@@ -1,0 +1,67 @@
+{
+ "lighthouseResult": {
+  "categories": {
+   "performance": {
+    "score": 0.74
+   },
+   "accessibility": {
+    "score": 0.84
+   },
+   "best-practices": {
+    "score": 0.78
+   },
+   "seo": {
+    "score": 0.83
+   }
+  },
+  "audits": {
+   "largest-contentful-paint": {
+    "title": "Largest Contentful Paint",
+    "score": 0.1,
+    "numericValue": 2300
+   },
+   "cumulative-layout-shift": {
+    "title": "Cumulative Layout Shift",
+    "score": 0.5,
+    "numericValue": 0.08
+   },
+   "total-blocking-time": {
+    "title": "Total Blocking Time",
+    "score": 0.3,
+    "numericValue": 150
+   },
+   "first-contentful-paint": {
+    "title": "First Contentful Paint",
+    "score": 0.4,
+    "numericValue": 2900
+   },
+   "render-blocking-resources": {
+    "title": "Eliminate render-blocking resources",
+    "score": 0.2,
+    "details": {
+     "type": "opportunity",
+     "overallSavingsMs": 1850
+    }
+   },
+   "uses-optimized-images": {
+    "title": "Efficiently encode images",
+    "score": 0.3,
+    "details": {
+     "type": "opportunity",
+     "overallSavingsMs": 1200
+    }
+   },
+   "unused-javascript": {
+    "title": "Reduce unused JavaScript",
+    "score": 0.5,
+    "details": {
+     "type": "opportunity",
+     "overallSavingsMs": 600
+    }
+   }
+  }
+ },
+ "loadingExperience": {
+  "metrics": {}
+ }
+}
