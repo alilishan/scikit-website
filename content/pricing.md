@@ -68,9 +68,12 @@ City or region · 25 keywords · 2 articles a month · AI search tracking · mon
 | Custom software / web app | $10,000 |
 | Mobile app (iOS + Android) | $20,000 |
 | Automation or integration | $2,500 |
-| Microsoft 365 setup or migration | $1,500 |
-| Security review (Essential Eight) | $1,800 |
-| Hourly work | $150 / hour |
+| Cloud architecture & security review | $8,000 |
+| Cloud migration or new platform | $10,000 |
+| Cloud cost review | $5,000 |
+| Microsoft 365 setup or migration | $10,500 |
+| Security review (Essential Eight) | $5,000 |
+| Hourly work | $250 / hour |
 
 ---
 

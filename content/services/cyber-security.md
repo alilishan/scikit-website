@@ -26,7 +26,7 @@ Patch applications · Patch operating systems · Multi-factor authentication · 
 
 ## Pricing
 
-Security review from **$1,800**. Staff training from **$600**. All ex GST.
+Security review from **$5,000**. Staff training from **$600**. All ex GST.
 
 ---
 

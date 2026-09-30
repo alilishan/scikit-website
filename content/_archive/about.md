@@ -25,7 +25,7 @@ Between us, that's 40+ years across software development, cloud infrastructure a
 
 Ali has 20+ years in software development, specialising in web and mobile applications. As a Chief Software Architect, Ali leads engineering teams from first idea through to launch and beyond — designing the architecture, building the product and mentoring the developers behind it.
 
-Ali's toolkit spans React, Node.js, TypeScript, Python, Java and .NET; microservices and event-driven systems; AWS, Azure and Google Cloud; and DevSecOps practices that keep releases fast and safe. Just as importantly, Ali knows how to turn a messy business process into software people actually enjoy using.
+Ali's toolkit spans React, Node.js, TypeScript, Python, Java and .NET; microservices and event-driven systems; AWS and Azure; and DevSecOps practices that keep releases fast and safe. Just as importantly, Ali knows how to turn a messy business process into software people actually enjoy using.
 
 - MSc Information Technology Management — Staffordshire University
 - BSc (Hons) Software Engineering — Nottingham Trent University

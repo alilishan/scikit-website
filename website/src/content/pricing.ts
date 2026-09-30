@@ -50,12 +50,12 @@ export const otherPrices = [
   { name: "Custom software / web app", price: "from $10,000" },
   { name: "Mobile app (iOS + Android)", price: "from $20,000" },
   { name: "Automation or integration", price: "from $2,500" },
-  { name: "Cloud architecture & security review", price: "from $2,500" },
-  { name: "Cloud migration or new platform", price: "from $8,000" },
-  { name: "Cloud cost review", price: "from $1,200" },
-  { name: "Microsoft 365 setup or migration", price: "from $1,500" },
-  { name: "Security review (Essential Eight)", price: "from $1,800" },
-  { name: "Hourly work", price: "$150 / hour" },
+  { name: "Cloud architecture & security review", price: "from $8,000" },
+  { name: "Cloud migration or new platform", price: "from $10,000" },
+  { name: "Cloud cost review", price: "from $5,000" },
+  { name: "Microsoft 365 setup or migration", price: "from $10,500" },
+  { name: "Security review (Essential Eight)", price: "from $5,000" },
+  { name: "Hourly work", price: "$250 / hour" },
 ];
 
 export const payment = [
