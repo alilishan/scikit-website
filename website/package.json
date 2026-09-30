@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "release": "npm version patch --no-git-tag-version && git add package.json package-lock.json && git commit -m \"Release v$(node -p \"require('./package.json').version\")\" && git push origin main"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

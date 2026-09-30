@@ -4,9 +4,8 @@ import { services } from "@/content/services";
 import { emailHref, localityLine, phoneHref, site } from "@/lib/site";
 import pkg from "../../../package.json";
 
-// Site version: package.json version plus the git commit Vercel built from (set at build time).
-const commit = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
-const version = `v${pkg.version}${commit ? ` · ${commit}` : ""}`;
+// Site version from package.json.
+const version = `v${pkg.version}`;
 
 const colTitle = "pb-1 text-xs tracking-[0.16em] text-label uppercase";
 

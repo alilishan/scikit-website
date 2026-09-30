@@ -36,6 +36,13 @@ npm run lint
 - [ ] Have `/privacy` and `/terms` reviewed and set their "Last updated" dates.
 - [ ] Set `RESEND_API_KEY` (and the `TURNSTILE_*` keys) and send a test enquiry.
 
+## Publishing
+
+Push to `main` with `npm run release` (from `website/`), not a plain `git push`. It bumps the
+patch version in `package.json` (v0.1.0 → v0.1.1), commits "Release v0.1.1" and pushes, so the
+version in the footer goes up with every publish. Commit your changes first. For a bigger step,
+run `npm version minor --no-git-tag-version` (→ v0.2.0) or `major` (→ v1.0.0) before releasing.
+
 ## Deploy to Vercel
 
 1. Push this folder to a Git repo and import it in Vercel. If the repo root is the parent folder, set **Root Directory** to `website`. The framework preset (Next.js) is detected automatically.
