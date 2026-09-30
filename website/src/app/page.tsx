@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { CtaBlock } from "@/components/site/cta-block";
 import { FaqList } from "@/components/site/faq-list";
 import { JsonLd } from "@/components/site/json-ld";
+import { site } from "@/lib/site";
 import { OpenChatButton } from "@/components/site/chat";
 import { Arrow, Dot, Eyebrow, SectionTitle, Stop, TextLink, Tick } from "@/components/site/primitives";
 import { auditItems, certifications, people, steps, ticks } from "@/content/home";
@@ -31,6 +32,8 @@ export const metadata: Metadata = pageMeta({
 export default function HomePage() {
   return (
     <>
+      {/* Site name for Google search results (shown above the URL). Belongs on the home page only. */}
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", name: site.name, url: `${site.url}/` }} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

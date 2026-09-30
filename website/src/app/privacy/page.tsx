@@ -64,8 +64,11 @@ export default function PrivacyPage() {
 
       <h2>7. Cookies</h2>
       <p>
-        Our website uses cookies for basic functionality and analytics. You can disable cookies in your browser, though
-        some features may not work properly.
+        Our website uses cookies for basic functionality and analytics. We use Google Analytics to understand how people
+        use the site (pages visited, device, approximate location and referral source); it does not receive the details
+        you type into our forms. You can disable cookies in your browser, though some features may not work properly, or
+        opt out of Google Analytics with Google&apos;s{" "}
+        <a href="https://tools.google.com/dlpage/gaoptout">browser add-on</a>.
       </p>
 
       <h2>8. Access and correction</h2>

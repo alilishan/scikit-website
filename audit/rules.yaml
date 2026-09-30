@@ -23,7 +23,7 @@ report:
   website: scikit.com.au
   email: info@scikit.com.au
   cta: "Book a free 20-minute call"
-  cta_url: https://scikit.com.au/contact
+  cta_url: https://www.scikit.com.au/contact
 
 thresholds:
   lcp_s:       { good: 2.5, poor: 4.0 }   # Google's Core Web Vitals cut-offs

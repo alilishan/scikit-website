@@ -6,7 +6,7 @@ const env = (value: string | undefined, fallback = "") => (value && value.trim()
 
 export const site = {
   name: "Scikit",
-  url: env(process.env.NEXT_PUBLIC_SITE_URL, "https://scikit.com.au"),
+  url: env(process.env.NEXT_PUBLIC_SITE_URL, "https://www.scikit.com.au"),
   tagline: "Websites, software & cloud for Australian businesses.",
   description:
     "Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the cloud systems that keep it all running, for Australian businesses.",
@@ -27,6 +27,8 @@ export const site = {
     { label: "Instagram", href: env(process.env.NEXT_PUBLIC_INSTAGRAM_URL) },
     { label: "Facebook", href: env(process.env.NEXT_PUBLIC_FACEBOOK_URL) },
   ].filter((s) => s.href),
+  // Google Analytics 4 measurement ID. Loaded on the live (production) site only.
+  gaId: env(process.env.NEXT_PUBLIC_GA_ID, "G-CHM0V5HT0W"),
   showAnnouncement: true,
   showChat: true,
 };

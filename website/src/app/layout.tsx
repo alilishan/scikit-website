@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter, Inter_Tight } from "next/font/google";
 import { AnnouncementBar, SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -69,6 +70,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </ChatProvider>
         </MotionProvider>
       </body>
+      {/* Production only, so local builds and preview deployments don't count as visits. */}
+      {process.env.VERCEL_ENV === "production" && site.gaId && <GoogleAnalytics gaId={site.gaId} />}
     </html>
   );
 }

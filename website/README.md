@@ -41,4 +41,4 @@ npm run lint
 1. Push this folder to a Git repo and import it in Vercel. If the repo root is the parent folder, set **Root Directory** to `website`. The framework preset (Next.js) is detected automatically.
 2. Add the environment variables from `.env.example` in **Project → Settings → Environment Variables**.
 3. Add the domain `scikit.com.au` (and `www`) in **Project → Settings → Domains**, and update the DNS records at your registrar as Vercel shows.
-4. After launch, submit `https://scikit.com.au/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+4. After launch, submit `https://www.scikit.com.au/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
