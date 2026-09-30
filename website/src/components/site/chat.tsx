@@ -92,7 +92,7 @@ export function ChatWidget() {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="chat-panel"
-        className="flex cursor-pointer items-center gap-2.5 rounded-full bg-orange px-5 py-3.5 text-[15px] font-medium text-charcoal shadow-[0_14px_30px_-12px_rgba(255,106,46,0.7)]"
+        className="flex cursor-pointer items-center gap-2.5 rounded-full bg-orange-deep px-5 py-3.5 text-[15px] font-medium text-white shadow-[0_14px_30px_-12px_rgba(201,68,14,0.7)]"
       >
         {open ? "Close" : "Chat with us"}
       </button>
