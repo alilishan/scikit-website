@@ -7,7 +7,7 @@ The design comes from the Claude Design handoff in `../branding/design_handoff_s
 ## Run locally
 
 ```bash
-cp .env.example .env.local   # then fill in your details and SMTP settings
+cp .env.example .env.local   # then fill in your details and RESEND_API_KEY
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build
@@ -25,7 +25,7 @@ npm run lint
 | Home page lists (audit items, process steps, founders, promises) | `src/content/home.ts` |
 | Brand colours, fonts, layout utilities | `src/app/globals.css` |
 | Header, footer, CTA block, chat widget, FAQ accordion | `src/components/site/` |
-| Contact form + server action (Nodemailer over SMTP) | `src/app/contact/`, `src/lib/mailer.ts` |
+| Contact form + server action (Resend email, Cloudflare Turnstile bot check) | `src/app/contact/`, `src/lib/mailer.ts`, `src/lib/turnstile.ts` |
 | SEO: sitemap, robots (AI crawlers allowed), JSON-LD | `src/app/sitemap.ts`, `src/app/robots.ts`, `src/components/site/json-ld.tsx` |
 
 ## Before launch
@@ -34,7 +34,7 @@ npm run lint
 - [ ] Confirm prices (see `content/research/scikit-pricing-research.pdf` for recommended launch prices).
 - [ ] Replace the founder photo placeholders and the CSS laptop on the home page with real images.
 - [ ] Have `/privacy` and `/terms` reviewed and set their "Last updated" dates.
-- [ ] Set the `SMTP_*` settings and send a test enquiry.
+- [ ] Set `RESEND_API_KEY` (and the `TURNSTILE_*` keys) and send a test enquiry.
 
 ## Deploy to Vercel
 

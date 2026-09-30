@@ -1,6 +1,8 @@
 "use server";
 
+import { headers } from "next/headers";
 import { getMailer, mailFrom, mailTo } from "@/lib/mailer";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export type EnquiryState = { status: "idle" | "success" | "error"; message?: string };
 
@@ -10,12 +12,19 @@ const line = (v: FormDataEntryValue | null, max = 200) => clean(v, max).replace(
 
 /**
  * Handles the "Start a project" form.
- * Emails the enquiry over SMTP (Nodemailer) using the SMTP_* settings in the environment;
- * if they aren't set, the enquiry is only logged (useful in development).
+ * Rejects the submission unless Cloudflare Turnstile verifies it (see lib/turnstile.ts).
+ * Emails the enquiry with Resend (RESEND_API_KEY);
+ * if the key isn't set, the enquiry is only logged (useful in development).
  */
 export async function sendEnquiry(_prev: EnquiryState, formData: FormData): Promise<EnquiryState> {
   // Honeypot: real people never fill this hidden field.
   if (clean(formData.get("company_website"))) return { status: "success" };
+
+  // Cloudflare Turnstile: only real visitors get past this point.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim();
+  if (!(await verifyTurnstile(formData.get("cf-turnstile-response"), "contact", ip))) {
+    return { status: "error", message: "We couldn't confirm you're not a bot. Wait for the check above the Send button to finish, then send again." };
+  }
 
   const enquiry = {
     name: line(formData.get("name"), 200),
@@ -50,20 +59,19 @@ export async function sendEnquiry(_prev: EnquiryState, formData: FormData): Prom
   const mailer = getMailer();
   const to = mailTo();
   if (!mailer || !to) {
-    console.info("[enquiry] SMTP not configured (SMTP_HOST / SMTP_USER / SMTP_PASS / CONTACT_TO_EMAIL). Enquiry received:\n" + text);
+    console.info("[enquiry] Email not configured (RESEND_API_KEY / CONTACT_TO_EMAIL). Enquiry received:\n" + text);
     return { status: "success" };
   }
 
-  try {
-    await mailer.sendMail({
-      from: `"Scikit website" <${mailFrom()}>`,
-      to,
-      replyTo: `"${enquiry.name.replace(/"/g, "")}" <${enquiry.email}>`,
-      subject: `New enquiry: ${enquiry.business || enquiry.name}`,
-      text,
-    });
-  } catch (err) {
-    console.error("[enquiry] SMTP send failed", err);
+  const { error } = await mailer.emails.send({
+    from: `Scikit website <${mailFrom()}>`,
+    to,
+    replyTo: `${enquiry.name.replace(/["<>]/g, "")} <${enquiry.email}>`,
+    subject: `New enquiry: ${enquiry.business || enquiry.name}`,
+    text,
+  });
+  if (error) {
+    console.error("[enquiry] Resend send failed", error);
     return { status: "error", message: "Your message didn't send. Try again, or email us directly." };
   }
   return { status: "success" };

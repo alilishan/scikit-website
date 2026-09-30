@@ -1,30 +1,16 @@
 import "server-only";
-import nodemailer, { type Transporter } from "nodemailer";
+import { Resend } from "resend";
 
-/** SMTP settings from environment variables. Returns null when mail isn't configured yet. */
-function smtpConfig() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!host || !user || !pass) return null;
-  const port = Number(process.env.SMTP_PORT ?? 587);
-  return {
-    host,
-    port,
-    // true for port 465 (implicit TLS); false for 587 (STARTTLS).
-    secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" : port === 465,
-    auth: { user, pass },
-  };
-}
+let resend: Resend | null = null;
 
-let transporter: Transporter | null = null;
-
+/** Resend client from RESEND_API_KEY. Returns null when email isn't configured yet. */
 export function getMailer() {
-  const config = smtpConfig();
-  if (!config) return null;
-  transporter ??= nodemailer.createTransport(config);
-  return transporter;
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  resend ??= new Resend(key);
+  return resend;
 }
 
-export const mailFrom = () => process.env.CONTACT_FROM_EMAIL || process.env.SMTP_USER || "";
+/** Sender address. Must be on a domain verified in Resend (scikit.com.au). */
+export const mailFrom = () => process.env.CONTACT_FROM_EMAIL || "info@scikit.com.au";
 export const mailTo = () => process.env.CONTACT_TO_EMAIL || process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";

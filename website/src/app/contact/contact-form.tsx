@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRightIcon, CheckIcon } from "lucide-react";
+import { Turnstile } from "@/components/site/turnstile";
 import { sendEnquiry, type EnquiryState } from "./actions";
 
 const needs = ["New website", "Website redesign", "SEO", "Hosting & care", "Free audit", "Something else"];
@@ -96,6 +97,9 @@ function EnquiryForm({ onReset }: { onReset: () => void }) {
         Tell us about your business *
         <textarea name="about" required rows={5} className={`${input} resize-y`} />
       </label>
+
+      {/* Bot check (Cloudflare Turnstile). Reset after every attempt: each token works once. */}
+      <Turnstile action="contact" resetKey={state} />
 
       {/* Honeypot for spam bots. Hidden from people and screen readers. */}
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
