@@ -6,7 +6,7 @@ import { Reveal } from "@/components/site/motion";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Start a Project | Contact Scikit, Melbourne",
+  title: "Start a Project | Scikit, Melbourne & Australia-wide",
   description:
     "Start a website or SEO project with Scikit, or get a free website & SEO audit. Melbourne-based, working Australia-wide. We reply within one business day.",
   path: "/contact",

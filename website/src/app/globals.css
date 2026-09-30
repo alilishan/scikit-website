@@ -9,6 +9,8 @@
   --color-orange: #ff6a2e;
   /* Brand orange nudged darker so large orange text on white clears WCAG 3:1. */
   --color-orange-ink: #ee5a1f;
+  /* Deepest brand orange: white text on it clears WCAG 4.5:1 (badges). */
+  --color-orange-deep: #c9440e;
   --color-offwhite: #f8f7f4;
   --color-warm-100: #eeece7;
   --color-warm-150: #f1efea;

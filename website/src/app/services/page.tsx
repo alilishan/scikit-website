@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Services | Web Design, SEO & More | Scikit",
   description:
-    "Web design, SEO and hosting for Australian small businesses, plus custom software, apps, Microsoft 365, cyber security and AI from the same senior team.",
+    "Web design, SEO, custom software and AWS/Azure cloud for Australian businesses, plus hosting, apps, Microsoft 365, cyber security and AI from the same senior team.",
   path: "/services",
 });
 
@@ -30,7 +30,7 @@ export default function ServicesPage() {
 
       <section className="container-site flex flex-col gap-[22px] pt-6 pb-10">
         <h2 className={groupLabel}>Core services</h2>
-        <div className="auto-grid gap-5 [--min:260px]">
+        <div className="auto-grid gap-5 [--min:210px]">
           {coreServices.map((s, i) => (
             <Reveal key={s.slug} delay={stagger(i)}>
             <Link

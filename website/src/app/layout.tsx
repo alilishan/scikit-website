@@ -14,7 +14,7 @@ const interTight = Inter_Tight({ subsets: ["latin"], weight: ["700"], variable: 
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Scikit | Web Design & Software Development Melbourne",
+  title: "Scikit | Web Design & Software | Melbourne & Australia-wide",
   description: site.description,
   applicationName: site.name,
   // Each page sets its own canonical, Open Graph and Twitter tags via pageMeta() in src/lib/seo.ts.

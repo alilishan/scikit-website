@@ -22,9 +22,9 @@ import { stagger } from "@/lib/stagger";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Scikit | Web Design & Software Development Melbourne",
+  title: "Scikit | Web Design & Software | Melbourne & Australia-wide",
   description:
-    "Scikit builds fast, secure websites that rank on Google, plus custom software and cloud systems, for Australian small businesses. Melbourne-based, fixed prices.",
+    "Scikit builds fast, secure websites that rank on Google, plus custom software and cloud systems. Based in Melbourne, working Australia-wide, with fixed prices.",
   path: "/",
 });
 
@@ -62,7 +62,13 @@ function Hero() {
     <section className="container-site grid items-center gap-x-10 gap-y-14 pt-[72px] pb-[88px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
       <div className="flex flex-col gap-[26px]">
         <Reveal onLoad>
-          <Eyebrow dot>Web design &amp; software development · Melbourne</Eyebrow>
+          <Eyebrow dot>
+            <span>
+              Websites, software &amp; cloud<span className="hidden sm:inline"> · </span>
+              <br className="sm:hidden" />
+              Melbourne &amp; Australia-wide
+            </span>
+          </Eyebrow>
         </Reveal>
         <h1 className="display m-0 text-[clamp(44px,5.6vw,76px)] leading-[0.98] tracking-[-0.04em]">
           <RevealLines
@@ -79,7 +85,7 @@ function Hero() {
         <Reveal onLoad delay={0.5}>
           <p className="m-0 max-w-[520px] text-lg leading-[1.6] text-body">
             Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the
-            cloud systems that keep it all running, for Australian small businesses.
+            cloud systems that keep it all running, for Australian businesses.
           </p>
         </Reveal>
         <Reveal onLoad delay={0.62} className="flex flex-wrap items-center gap-3.5">
@@ -186,7 +192,7 @@ function Services() {
       <Reveal delay={0.1} offset={0}>
         <ConnectBeam />
       </Reveal>
-      <div className="auto-grid gap-px overflow-hidden rounded-xl bg-warm-200 shadow-panel [--min:260px]">
+      <div className="auto-grid gap-px overflow-hidden rounded-xl bg-warm-200 shadow-panel [--min:210px]">
         {coreServices.map((s, i) => (
           <Reveal key={s.slug} delay={stagger(i)} className="bg-white">
           <Link

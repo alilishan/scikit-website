@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 // Default social preview image (LinkedIn, WhatsApp, iMessage, X...) for every page.
-export const alt = "Scikit: websites, software & cloud for Australian small businesses";
+export const alt = "Scikit: websites, software & cloud for Australian businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -49,7 +49,7 @@ export default async function OpengraphImage() {
           </span>
         </div>
         <div style={{ display: "flex", fontSize: 28, color: "#C9C7C2", letterSpacing: "-0.01em" }}>
-          Web design &amp; software development · Melbourne
+          Websites, software &amp; cloud · Melbourne &amp; Australia-wide
         </div>
       </div>
     ),

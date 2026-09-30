@@ -22,6 +22,7 @@ const mainNav = [
   { label: "Web Design", href: "/services/websites" },
   { label: "SEO", href: "/services/seo" },
   { label: "Custom Software", href: "/services/custom-software" },
+  { label: "Cloud & DevOps", href: "/services/cloud-devops" },
   { label: "Hosting & Care", href: "/services/hosting-care" },
 ];
 const endNav = [
@@ -39,7 +40,7 @@ export function AnnouncementBar() {
   if (!site.showAnnouncement) return null;
   return (
     <div className="flex flex-wrap justify-center gap-2 bg-charcoal px-5 py-2.5 text-center text-[13px] text-offwhite">
-      <span>Free website &amp; SEO audit for Australian small businesses.</span>
+      <span>Free website &amp; SEO audit for Australian businesses.</span>
       <Link href="/contact" className="relative after:absolute after:-inset-x-1 after:-inset-y-2.5 after:content-[''] inline-flex items-center gap-1 font-medium text-orange hover:text-offwhite">
         Get yours <Arrow className="size-3.5" />
       </Link>

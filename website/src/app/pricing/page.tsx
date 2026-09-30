@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Pricing | Web Design & SEO Prices | Scikit",
   description:
-    "Website design from $3,500, SEO from $790/month and hosting from $99/month. Clear, fixed prices for Australian small businesses. All prices AUD ex GST.",
+    "Website design from $3,500, SEO from $790/month and hosting from $99/month. Clear, fixed prices for Australian businesses. All prices AUD ex GST.",
   path: "/pricing",
 });
 

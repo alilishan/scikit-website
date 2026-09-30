@@ -7,9 +7,9 @@ const env = (value: string | undefined, fallback = "") => (value && value.trim()
 export const site = {
   name: "Scikit",
   url: env(process.env.NEXT_PUBLIC_SITE_URL, "https://scikit.com.au"),
-  tagline: "Websites, software & cloud for Australian small businesses.",
+  tagline: "Websites, software & cloud for Australian businesses.",
   description:
-    "Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the cloud systems that keep it all running, for Australian small businesses.",
+    "Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the cloud systems that keep it all running, for Australian businesses.",
   email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
   phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE),
   // Digits only, with country code, e.g. "61400000000"

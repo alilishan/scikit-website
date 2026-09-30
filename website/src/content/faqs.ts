@@ -43,7 +43,7 @@ export const faqGroups: { name: string; items: Faq[] }[] = [
   {
     name: "Working with us",
     items: [
-      { q: "Where are you based?", a: "Melbourne. We meet clients in person around Melbourne and work with businesses across Australia remotely." },
+      { q: "Where are you based?", a: "We're based in Melbourne and work with businesses right across Australia. We meet Melbourne clients in person, and everyone else by video call." },
       { q: "Do you only do websites and SEO?", a: "They're our focus. The same team also builds custom software and apps, and sets up Microsoft 365, cloud and cyber security, so you don't need another provider as you grow." },
       { q: "Are your prices ex GST?", a: "Yes. All prices are in AUD and exclude GST." },
     ],

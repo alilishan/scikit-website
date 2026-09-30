@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "FAQ | Web Design & SEO | Scikit",
   description:
-    "Answers about website costs, timelines, SEO, hosting, ownership and working with Scikit, a web design and SEO agency in Melbourne.",
+    "Answers about website costs, timelines, SEO, hosting, ownership and working with Scikit, a Melbourne-based web design and SEO agency working Australia-wide.",
   path: "/faq",
 });
 

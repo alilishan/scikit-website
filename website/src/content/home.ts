@@ -41,7 +41,7 @@ export const ticks = [
   "Senior engineers only",
   "Fixed-price quotes in AUD",
   "You own your site, domain and accounts",
-  "In-person meetings in Melbourne",
+  "Australia-wide, in person in Melbourne",
 ];
 
 export const people = [

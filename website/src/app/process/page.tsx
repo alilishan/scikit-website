@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Our Process | Web Design & SEO | Scikit",
   description:
-    "How Scikit builds websites and runs SEO for Australian small businesses. Audit, plan, build, launch and grow, with fixed prices and weekly updates.",
+    "How Scikit builds websites and runs SEO for Australian businesses. Audit, plan, build, launch and grow, with fixed prices and weekly updates.",
   path: "/process",
 });
 

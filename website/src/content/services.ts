@@ -28,7 +28,11 @@ export type Service = {
   includes: string[];
   plansTitle: string;
   plans: ServicePlan[];
-  cards: { title: string; body: string }[];
+  cards: { title: string; body: string; link?: { label: string; href: string } }[];
+  // Optional deeper sections, used by technical services (e.g. Cloud & DevOps).
+  platforms?: { title: string; intro: string; rows: { capability: string; aws: string; azure: string }[] };
+  examples?: { title: string; intro: string; items: { title: string; platform: string; goal: string; setup: string[] }[] };
+  method?: { title: string; steps: { title: string; body: string }[] };
   faqs?: Faq[];
   ctaTitle: string;
   ctaButton?: string;
@@ -44,10 +48,10 @@ export const services: Service[] = [
     num: "01",
     body: "Fast, mobile-first websites that load instantly, rank on Google and turn visitors into enquiries and bookings.",
     short: "Fast, mobile-first websites that rank on Google and turn visitors into customers.",
-    metaTitle: "Web Design Melbourne | Small Business Websites | Scikit",
+    metaTitle: "Small Business Web Design, Melbourne & Australia | Scikit",
     metaDescription:
       "Fast, mobile-first websites for Australian small businesses, built by senior engineers. SEO setup, secure hosting and backups included. From $3,500 + GST.",
-    eyebrow: "Web design for small business in Melbourne",
+    eyebrow: "Web design for small business · Melbourne & Australia-wide",
     h1: "Websites that load instantly and bring in work",
     lead: "Fast, mobile-first websites that load instantly, rank on Google and turn visitors into enquiries and bookings. Built by engineers, not dragged together from a template.",
     primary: { label: "Start a project", href: contact },
@@ -87,10 +91,10 @@ export const services: Service[] = [
     num: "02",
     body: "Rank on Google, and get recommended by AI search, for the terms that bring in customers. Technical SEO, local SEO, Google Business Profile and content.",
     short: "Rank on Google, and get recommended by AI search, for the terms that bring in customers.",
-    metaTitle: "SEO & Local SEO for Small Business Melbourne | Scikit",
+    metaTitle: "Small Business SEO, Melbourne & Australia-wide | Scikit",
     metaDescription:
       "SEO for Australian small businesses: technical and local SEO, Google Business Profile and content that ranks on Google and in AI search. No lock-in.",
-    eyebrow: "SEO for small business in Melbourne",
+    eyebrow: "SEO for small business · Melbourne & Australia-wide",
     h1: "SEO that brings in customers, not just traffic",
     lead: "Rank on Google for the searches that matter to your business, and show up when customers ask ChatGPT, Google AI or Perplexity for a recommendation.",
     primary: { label: "Get my free SEO audit", href: contact },
@@ -129,7 +133,7 @@ export const services: Service[] = [
     num: "03",
     body: "Booking systems, customer portals and internal tools designed, built and deployed around how your business works.",
     short: "Booking systems, customer portals and internal tools designed, built and deployed around how you work.",
-    metaTitle: "Custom Software & Web Apps Melbourne | Scikit",
+    metaTitle: "Custom Software & Web Apps, Melbourne & Australia | Scikit",
     metaDescription:
       "Booking systems, customer portals, internal tools and integrations for Australian small businesses, built by a software architect with 20+ years' experience.",
     eyebrow: "Custom software & web apps",
@@ -160,13 +164,130 @@ export const services: Service[] = [
     ctaButton: "Book a free chat",
   },
   {
+    slug: "cloud-devops",
+    title: "Cloud & DevOps",
+    core: true,
+    num: "04",
+    body: "AWS and Azure architecture, migrations and automated deployments, designed by a former AWS Solutions Architect.",
+    short: "AWS and Azure architecture, migrations, infrastructure as code and CI/CD pipelines.",
+    metaTitle: "AWS & Azure Cloud Consulting, Melbourne & Australia | Scikit",
+    metaDescription:
+      "AWS and Azure architecture, migrations, infrastructure as code and CI/CD pipelines for Australian businesses, led by a former AWS Solutions Architect.",
+    eyebrow: "Cloud & DevOps · AWS and Azure",
+    h1: "AWS and Azure, built to scale and stay secure",
+    lead: "Cloud architecture, migrations and automated deployments on AWS and Azure, designed by a former AWS Solutions Architect with 20 years in infrastructure. Built as code, documented, and in your name.",
+    primary: { label: "Request a cloud architecture review", href: contact },
+    secondary: { label: "See example architectures", href: "#examples" },
+    includesTitle: "What we do",
+    includes: [
+      "Cloud architecture and design reviews on AWS and Azure",
+      "Migrations from office servers, old hosts or between clouds",
+      "Infrastructure as code with Terraform, CloudFormation or Bicep",
+      "CI/CD pipelines with GitHub Actions, GitLab CI or Azure DevOps",
+      "Containers and serverless: ECS, EKS, AKS, Container Apps, Lambda and Azure Functions",
+      "Monitoring, logging and alerts that reach a person",
+      "Identity, access and security baselines",
+      "Cost reviews and right-sizing",
+    ],
+    platforms: {
+      title: "AWS or Azure: we work with both",
+      intro: "We recommend the platform that suits your team and the tools you already use, not the one we prefer. Terraform works across both, so you're never locked in to us or to one provider.",
+      rows: [
+        { capability: "Compute & containers", aws: "EC2, ECS, EKS, App Runner", azure: "App Service, Container Apps, AKS" },
+        { capability: "Databases & storage", aws: "RDS, Aurora, DynamoDB, S3", azure: "Azure SQL, Cosmos DB, Blob Storage" },
+        { capability: "Serverless & integration", aws: "Lambda, API Gateway, EventBridge", azure: "Functions, Logic Apps, API Management" },
+        { capability: "Infrastructure & delivery", aws: "CloudFormation, CDK, CodePipeline", azure: "Bicep, ARM templates, Azure DevOps" },
+        { capability: "Security & governance", aws: "IAM, GuardDuty, CloudTrail, Security Hub", azure: "Entra ID, Key Vault, Defender for Cloud, Azure Policy" },
+      ],
+    },
+    examples: {
+      title: "Example architectures",
+      intro: "Typical setups we design. Every project starts from your requirements, so yours will look different.",
+      items: [
+        {
+          title: "Online store that handles traffic spikes",
+          platform: "AWS",
+          goal: "Stay fast and online through sales, launches and seasonal peaks.",
+          setup: [
+            "CloudFront CDN and AWS WAF in front of the site",
+            "Containers on ECS behind a load balancer, scaling automatically",
+            "PostgreSQL on RDS across two availability zones, with automatic failover",
+            "Everything in Terraform, deployed through GitHub Actions",
+          ],
+        },
+        {
+          title: "Breaking up an ageing system",
+          platform: "Azure",
+          goal: "Move a legacy application to services that can be updated independently, without a big-bang rewrite.",
+          setup: [
+            "Services on Azure Container Apps or AKS, deployed from Azure DevOps",
+            "API Management for routing, sign-in and rate limits",
+            "Azure SQL or Cosmos DB, depending on the data",
+            "Application Insights and Azure Monitor for live telemetry",
+          ],
+        },
+        {
+          title: "Disaster recovery across clouds",
+          platform: "AWS + Azure",
+          goal: "Keep critical systems running if a provider or region has an outage.",
+          setup: [
+            "Primary environment on one cloud, a warm standby on the other",
+            "Encrypted site-to-site VPN between them",
+            "Data replicated on a schedule that matches your recovery targets",
+            "One Terraform codebase for both, and recovery tested on a schedule",
+          ],
+        },
+      ],
+    },
+    method: {
+      title: "How we work",
+      steps: [
+        { title: "Assess", body: "We review your current setup, workloads, security and budget, and agree what good looks like." },
+        { title: "Design", body: "You get an architecture diagram and a fixed-price plan in plain English before anything changes." },
+        { title: "Build as code", body: "We build staging and production with infrastructure as code, so every environment is repeatable and documented." },
+        { title: "Automate & hand over", body: "CI/CD for zero-downtime releases, plus monitoring, alerts and cost controls. Every account stays in your name." },
+      ],
+    },
+    plansTitle: "Pricing",
+    plans: [
+      { name: "Cloud cost review", prefix: "from", price: "$1,200", suffix: "+ GST", desc: "We find the AWS or Azure resources you're paying for and don't need." },
+      { name: "Architecture & security review", prefix: "from", price: "$2,500", suffix: "+ GST", popular: true, desc: "Your AWS or Azure setup checked for security, reliability and cost, with a ranked list of fixes." },
+      { name: "Migration or new platform", prefix: "from", price: "$8,000", suffix: "+ GST", desc: "Moving to the cloud, or building a new environment with CI/CD. Fixed quote after the review." },
+    ],
+    cards: [
+      { title: "Built as code, owned by you", body: "Every environment is defined in Terraform, CloudFormation or Bicep and kept in your own repository, so it's documented, repeatable and never tied to us." },
+      { title: "Australian data, secured properly", body: "We deploy to Sydney or Melbourne regions by default, with access, encryption and logging set up in line with the Essential Eight and the Privacy Act." },
+      { title: "Already on AWS or Azure?", body: "We take over existing environments: we document what's there, fix the risks, and switch off what you don't need." },
+    ],
+    faqs: [
+      {
+        q: "Should we use AWS or Azure?",
+        a: "It depends on your team and tools. If you already run Microsoft 365 and Entra ID, Azure is often the simpler fit. For many web and software workloads, AWS has the broader range of services. We'll recommend one and explain why.",
+      },
+      {
+        q: "Do you only work with large companies?",
+        a: "No. We work with businesses of every size, from a single application to multi-account environments. The approach is the same: right-sized, documented and in your name.",
+      },
+      {
+        q: "Can you work with our in-house developers?",
+        a: "Yes. We often set up the infrastructure and pipelines, then hand them over with documentation and training, or stay on to support your team.",
+      },
+      {
+        q: "Can you guarantee uptime?",
+        a: "AWS and Azure publish their own service levels. We design for high availability (multiple availability zones, automatic failover and tested backups) and agree recovery targets with you up front.",
+      },
+    ],
+    ctaTitle: "Planning a migration or a new platform?",
+    ctaButton: "Book a free chat",
+  },
+  {
     slug: "hosting-care",
     title: "Hosting & Care",
     core: true,
-    num: "04",
-    body: "Secure hosting, cloud setup, backups and ongoing maintenance for everything we build, looked after by a former AWS Solutions Architect.",
+    num: "05",
+    body: "Secure hosting, backups, updates and monthly changes for everything we build, so it stays fast, safe and online.",
     short: "Secure hosting, backups, updates and monthly changes, looked after by a former AWS architect.",
-    metaTitle: "Website Hosting & Care Plans Melbourne | Scikit",
+    metaTitle: "Website Hosting & Care Plans, Melbourne & Australia | Scikit",
     metaDescription:
       "Secure website hosting, daily backups, updates and monthly changes for Australian small businesses, looked after by a former AWS architect. From $99/month.",
     eyebrow: "Hosting & care",
@@ -208,7 +329,7 @@ export const services: Service[] = [
     core: false,
     body: "iOS and Android apps from one codebase.",
     short: "iOS and Android apps from one codebase.",
-    metaTitle: "Mobile App Development Melbourne | iOS & Android | Scikit",
+    metaTitle: "Mobile App Development, Melbourne & Australia | Scikit",
     metaDescription:
       "iOS and Android apps for Australian small businesses and start-ups, built from one codebase to keep costs down. From $20,000 + GST.",
     eyebrow: "Mobile apps",
@@ -237,18 +358,18 @@ export const services: Service[] = [
     ctaButton: "Book a free chat",
   },
   {
-    slug: "cloud-and-it",
+    slug: "microsoft-365",
     label: "Microsoft 365",
-    title: "Cloud & Microsoft 365",
+    title: "Microsoft 365 & IT",
     core: false,
-    body: "Email, files, backups and AWS/Azure set up properly.",
-    short: "Email, files, backups and AWS/Azure set up properly.",
-    metaTitle: "Microsoft 365 & Cloud Setup Melbourne | Scikit",
+    body: "Email, files, devices and backups set up properly.",
+    short: "Email, files, devices and backups set up properly.",
+    metaTitle: "Microsoft 365 Setup & IT, Melbourne & Australia | Scikit",
     metaDescription:
-      "Microsoft 365, Google Workspace, backups and AWS/Azure cloud set up properly for Australian small businesses, by a former AWS Solutions Architect.",
-    eyebrow: "Cloud & Microsoft 365",
-    h1: "Email, files and cloud, set up properly",
-    lead: "Email, files, backups and cloud hosting set up properly, by a former AWS Solutions Architect with 20 years in infrastructure.",
+      "Microsoft 365 and Google Workspace setup, migrations, email security and backups for Australian businesses, by a former AWS Solutions Architect.",
+    eyebrow: "Microsoft 365 & IT",
+    h1: "Email, files and devices, set up properly",
+    lead: "Microsoft 365, Google Workspace, email security and backups set up properly, by a former AWS Solutions Architect with 20 years in infrastructure.",
     primary: { label: "Book a free chat", href: contact },
     secondary: { label: "See pricing", href: "/pricing" },
     includesTitle: "What we do",
@@ -258,17 +379,16 @@ export const services: Service[] = [
       "Email security: SPF, DKIM and DMARC",
       "Automated, tested backups",
       "Laptops and phones managed centrally, with MFA everywhere",
-      "AWS & Azure migrations, hosting and infrastructure as code",
-      "Cloud cost reviews: find out what you don't need",
+      "Moving files off old office servers",
     ],
     plansTitle: "Pricing",
     plans: [
       { name: "Microsoft 365 setup or migration", prefix: "from", price: "$1,500", suffix: "+ GST", popular: true, desc: "New setups and moves from old email servers, GoDaddy email or Gmail." },
-      { name: "Cloud cost review", prefix: "from", price: "$1,200", suffix: "+ GST", desc: "We find the AWS or Azure resources you're paying for and don't need." },
     ],
     cards: [
       { title: "Stop domain spoofing", body: "SPF, DKIM and DMARC stop people sending fake emails that look like they came from your business." },
       { title: "Ongoing admin", body: "Our Complete care plan includes Microsoft 365 / Google Workspace admin: users, licences and mailboxes." },
+      { title: "Need AWS or Azure?", body: "Cloud hosting, migrations and infrastructure as code are covered by our Cloud & DevOps service.", link: { label: "Cloud & DevOps", href: "/services/cloud-devops" } },
     ],
     ctaTitle: "Want your IT set up properly?",
     ctaButton: "Book a free chat",
@@ -302,7 +422,7 @@ export const services: Service[] = [
     plansTitle: "Pricing",
     plans: [
       { name: "Security review", prefix: "from", price: "$1,800", suffix: "+ GST", popular: true, desc: "We check your setup against the Essential Eight and give you a ranked list of fixes. Then we can fix it: MFA, backups, patching, admin access and a password manager." },
-      { name: "Staff training", prefix: "from", price: "$600", suffix: "+ GST", desc: "How to spot phishing, fake invoices and payment scams. On-site in Melbourne or online." },
+      { name: "Staff training", prefix: "from", price: "$600", suffix: "+ GST", desc: "How to spot phishing, fake invoices and payment scams. On-site in Melbourne, or online anywhere in Australia." },
     ],
     cards: [
       { title: "Email protection", body: "Stop fake invoices and domain spoofing before they reach your team or your customers." },
