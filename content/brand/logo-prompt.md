@@ -4,7 +4,7 @@ Paste the block below into Claude Design.
 
 ---
 
-Design a logo for **Scikit** (scikit.com.au), a web design and SEO agency in Melbourne, Australia. We build fast, secure websites and run SEO campaigns that get small businesses found on Google and recommended by AI search. What makes us different: the websites are built by senior engineers (a software architect and a former AWS security architect), not assembled from templates. Clients include tradies, clinics, cafés, accountants and local shops.
+Design a logo for **Scikit** (scikit.com.au), a web design and SEO agency in Melbourne, Australia. We build fast, secure websites and run SEO campaigns that get small businesses found on Google and recommended by AI search. What makes us different: the websites are built by senior engineers (a software architect and an AWS security architect), not assembled from templates. Clients include tradies, clinics, cafés, accountants and local shops.
 
 **The idea to express:** *getting found, and rising.* Visibility, climbing the rankings, and a solid, well-engineered foundation underneath.
 

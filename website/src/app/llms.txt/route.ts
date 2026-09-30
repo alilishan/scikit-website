@@ -15,7 +15,7 @@ export function GET() {
     "",
     `> ${site.description}`,
     "",
-    `Scikit is a web design and software development studio in ${site.suburb}, ${site.state}, working with businesses across Australia. It is run by two senior engineers: Hassan Sheikh (former AWS Solutions Architect, AWS Security Specialty certified, 20 years in infrastructure) and Ali Lishan (Chief Software Architect, 20+ years building web and mobile applications). All prices are in AUD and exclude GST.`,
+    `Scikit is a web design and software development studio in ${site.suburb}, ${site.state}, working with businesses across Australia. It is run by two senior engineers: Hassan Sheikh (AWS Solutions Architect, AWS Security Specialty certified, 20 years in infrastructure) and Ali Lishan (Chief Software Architect, 20+ years building web and mobile applications). All prices are in AUD and exclude GST.`,
     "",
     "## Contact",
     ...(site.email ? [`- Email: ${site.email}`] : []),

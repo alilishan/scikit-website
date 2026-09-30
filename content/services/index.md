@@ -25,7 +25,7 @@ Booking systems, customer portals and internal tools designed, built and deploye
 **Learn more →**
 
 ### Hosting & Care
-Secure hosting, backups, updates and monthly changes, looked after by a former AWS architect.
+Secure hosting, backups, updates and monthly changes, looked after by an AWS architect.
 **Learn more →**
 
 ---

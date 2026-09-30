@@ -63,7 +63,7 @@ Booking systems, customer portals and internal tools designed, built and deploye
 **Learn more →**
 
 ### Hosting & Care
-Secure hosting, cloud setup, backups and ongoing maintenance for everything we build, looked after by a former AWS Solutions Architect.
+Secure hosting, cloud setup, backups and ongoing maintenance for everything we build, looked after by an AWS Solutions Architect.
 **Learn more →**
 
 **Also from the same team:** Mobile apps · Microsoft 365 · Cyber security · AI & automation
@@ -116,7 +116,7 @@ Most small business websites and systems are put together from templates and han
 
 Web design and development is led by **Ali Lishan**, a Chief Software Architect with 20+ years building web and mobile applications.
 
-Hosting and security are led by **Hassan Sheikh**, a former AWS Solutions Architect and AWS Security Specialty certified, with 20 years in infrastructure.
+Hosting and security are led by **Hassan Sheikh**, an AWS Solutions Architect and AWS Security Specialty certified, with 20 years in infrastructure.
 
 - ✓ Senior engineers only
 - ✓ Fixed-price quotes in AUD

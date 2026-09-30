@@ -168,14 +168,14 @@ export const services: Service[] = [
     title: "Cloud & DevOps",
     core: true,
     num: "04",
-    body: "AWS and Azure architecture, migrations and automated deployments, designed by a former AWS Solutions Architect.",
+    body: "AWS and Azure architecture, migrations and automated deployments, designed by an AWS Solutions Architect.",
     short: "AWS and Azure architecture, migrations, infrastructure as code and CI/CD pipelines.",
     metaTitle: "AWS & Azure Cloud Consulting, Melbourne & Australia | Scikit",
     metaDescription:
-      "AWS and Azure architecture, migrations, infrastructure as code and CI/CD pipelines for Australian businesses, led by a former AWS Solutions Architect.",
+      "AWS and Azure architecture, migrations, infrastructure as code and CI/CD pipelines for Australian businesses, led by an AWS Solutions Architect.",
     eyebrow: "Cloud & DevOps · AWS and Azure",
     h1: "AWS and Azure, built to scale and stay secure",
-    lead: "Cloud architecture, migrations and automated deployments on AWS and Azure, designed by a former AWS Solutions Architect with 20 years in infrastructure. Built as code, documented, and in your name.",
+    lead: "Cloud architecture, migrations and automated deployments on AWS and Azure, designed by an AWS Solutions Architect with 20 years in infrastructure. Built as code, documented, and in your name.",
     primary: { label: "Request a cloud architecture review", href: contact },
     secondary: { label: "See example architectures", href: "#examples" },
     includesTitle: "What we do",
@@ -250,9 +250,9 @@ export const services: Service[] = [
     },
     plansTitle: "Pricing",
     plans: [
-      { name: "Cloud cost review", prefix: "from", price: "$1,200", suffix: "+ GST", desc: "We find the AWS or Azure resources you're paying for and don't need." },
-      { name: "Architecture & security review", prefix: "from", price: "$2,500", suffix: "+ GST", popular: true, desc: "Your AWS or Azure setup checked for security, reliability and cost, with a ranked list of fixes." },
-      { name: "Migration or new platform", prefix: "from", price: "$8,000", suffix: "+ GST", desc: "Moving to the cloud, or building a new environment with CI/CD. Fixed quote after the review." },
+      { name: "Cloud cost review", prefix: "from", price: "$5,000", suffix: "+ GST", desc: "We find the AWS or Azure resources you're paying for and don't need." },
+      { name: "Architecture & security review", prefix: "from", price: "$8,000", suffix: "+ GST", popular: true, desc: "Your AWS or Azure setup checked for security, reliability and cost, with a ranked list of fixes." },
+      { name: "Migration or new platform", prefix: "from", price: "$10,000", suffix: "+ GST", desc: "Moving to the cloud, or building a new environment with CI/CD. Fixed quote after the review." },
     ],
     cards: [
       { title: "Built as code, owned by you", body: "Every environment is defined in Terraform, CloudFormation or Bicep and kept in your own repository, so it's documented, repeatable and never tied to us." },
@@ -286,13 +286,13 @@ export const services: Service[] = [
     core: true,
     num: "05",
     body: "Secure hosting, backups, updates and monthly changes for everything we build, so it stays fast, safe and online.",
-    short: "Secure hosting, backups, updates and monthly changes, looked after by a former AWS architect.",
+    short: "Secure hosting, backups, updates and monthly changes, looked after by an AWS architect.",
     metaTitle: "Website Hosting & Care Plans, Melbourne & Australia | Scikit",
     metaDescription:
-      "Secure website hosting, daily backups, updates and monthly changes for Australian small businesses, looked after by a former AWS architect. From $99/month.",
+      "Secure website hosting, daily backups, updates and monthly changes for Australian small businesses, looked after by an AWS architect. From $99/month.",
     eyebrow: "Hosting & care",
     h1: "Hosting and care for everything we build",
-    lead: "Secure hosting, daily backups, updates and monitoring for your website, looked after by a former AWS Solutions Architect. You run your business; we keep your site fast, safe and online.",
+    lead: "Secure hosting, daily backups, updates and monitoring for your website, looked after by an AWS Solutions Architect. You run your business; we keep your site fast, safe and online.",
     primary: { label: "Choose a plan", href: contact },
     secondary: { label: "See all pricing", href: "/pricing" },
     includesTitle: "Every plan includes",
@@ -312,11 +312,11 @@ export const services: Service[] = [
     ],
     cards: [
       { title: "Site built by someone else?", body: "We take over existing websites. We start with a takeover audit (from $450 + GST): we get your logins back into your name, check security and backups, and document what's there." },
-      { title: "Need more work?", body: "Extra work is $150/hour + GST, or a fixed quote for bigger jobs. Unused hours roll over for one month." },
+      { title: "Need more work?", body: "Extra work is $250/hour + GST, or a fixed quote for bigger jobs. Unused hours roll over for one month." },
     ],
     faqs: [
       { q: "What happens to unused hours?", a: "They roll over for one month." },
-      { q: "What if I need more work?", a: "Extra work is $150/hour + GST, or a fixed quote for bigger jobs." },
+      { q: "What if I need more work?", a: "Extra work is $250/hour + GST, or a fixed quote for bigger jobs." },
       { q: "Can I leave?", a: "Anytime, with 30 days' notice. Everything is already in your name." },
     ],
     ctaTitle: "Want someone reliable looking after your website?",
@@ -366,10 +366,10 @@ export const services: Service[] = [
     short: "Email, files, devices and backups set up properly.",
     metaTitle: "Microsoft 365 Setup & IT, Melbourne & Australia | Scikit",
     metaDescription:
-      "Microsoft 365 and Google Workspace setup, migrations, email security and backups for Australian businesses, by a former AWS Solutions Architect.",
+      "Microsoft 365 and Google Workspace setup, migrations, email security and backups for Australian businesses, by an AWS Solutions Architect.",
     eyebrow: "Microsoft 365 & IT",
     h1: "Email, files and devices, set up properly",
-    lead: "Microsoft 365, Google Workspace, email security and backups set up properly, by a former AWS Solutions Architect with 20 years in infrastructure.",
+    lead: "Microsoft 365, Google Workspace, email security and backups set up properly, by an AWS Solutions Architect with 20 years in infrastructure.",
     primary: { label: "Book a free chat", href: contact },
     secondary: { label: "See pricing", href: "/pricing" },
     includesTitle: "What we do",
@@ -383,7 +383,7 @@ export const services: Service[] = [
     ],
     plansTitle: "Pricing",
     plans: [
-      { name: "Microsoft 365 setup or migration", prefix: "from", price: "$1,500", suffix: "+ GST", popular: true, desc: "New setups and moves from old email servers, GoDaddy email or Gmail." },
+      { name: "Microsoft 365 setup or migration", prefix: "from", price: "$10,500", suffix: "+ GST", popular: true, desc: "New setups and moves from old email servers, GoDaddy email or Gmail." },
     ],
     cards: [
       { title: "Stop domain spoofing", body: "SPF, DKIM and DMARC stop people sending fake emails that look like they came from your business." },
@@ -421,7 +421,7 @@ export const services: Service[] = [
     ],
     plansTitle: "Pricing",
     plans: [
-      { name: "Security review", prefix: "from", price: "$1,800", suffix: "+ GST", popular: true, desc: "We check your setup against the Essential Eight and give you a ranked list of fixes. Then we can fix it: MFA, backups, patching, admin access and a password manager." },
+      { name: "Security review", prefix: "from", price: "$5,000", suffix: "+ GST", popular: true, desc: "We check your setup against the Essential Eight and give you a ranked list of fixes. Then we can fix it: MFA, backups, patching, admin access and a password manager." },
       { name: "Staff training", prefix: "from", price: "$600", suffix: "+ GST", desc: "How to spot phishing, fake invoices and payment scams. On-site in Melbourne, or online anywhere in Australia." },
     ],
     cards: [

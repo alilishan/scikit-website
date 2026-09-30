@@ -1,12 +1,12 @@
 ---
 title: Website Hosting & Care Plans Melbourne | Scikit
-description: Secure website hosting, daily backups, updates, monitoring and monthly changes for Australian small businesses. Looked after by a former AWS Solutions Architect. From $99/month.
+description: Secure website hosting, daily backups, updates, monitoring and monthly changes for Australian small businesses. Looked after by an AWS Solutions Architect. From $99/month.
 slug: /services/hosting-care
 ---
 
 # Hosting & Care
 
-Secure hosting, daily backups, updates and monitoring for your website, looked after by a former AWS Solutions Architect. You run your business; we keep your site fast, safe and online.
+Secure hosting, daily backups, updates and monitoring for your website, looked after by an AWS Solutions Architect. You run your business; we keep your site fast, safe and online.
 
 **Button:** Choose a plan
 
@@ -53,7 +53,7 @@ We take over existing websites. We start with a **takeover audit (from $450 + GS
 They roll over for one month.
 
 **What if I need more work?**
-Extra work is $150/hour + GST, or a fixed quote for bigger jobs.
+Extra work is $250/hour + GST, or a fixed quote for bigger jobs.
 
 **Can I leave?**
 Anytime, with 30 days' notice. Everything is already in your name.

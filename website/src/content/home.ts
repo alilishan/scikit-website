@@ -45,7 +45,7 @@ export const ticks = [
 ];
 
 export const people = [
-  { name: "Hassan Sheikh", photo: "/team/hassan-sheikh.webp", area: "Hosting & security", bio: "Former AWS Solutions Architect, AWS Security Specialty certified, with 20 years in infrastructure." },
+  { name: "Hassan Sheikh", photo: "/team/hassan-sheikh.webp", area: "Hosting & security", bio: "AWS Solutions Architect, AWS Security Specialty certified, with 20 years in infrastructure." },
   { name: "Ali Lishan", photo: "/team/ali-lishan.webp", area: "Web design & development", bio: "Chief Software Architect with 20+ years building web and mobile applications." },
 ];
 

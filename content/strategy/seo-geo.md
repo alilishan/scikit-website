@@ -60,7 +60,7 @@ AI engines lean heavily on "best X in Melbourne" listicles, and those listicles 
 | Medium | app developers melbourne · mobile app development small business australia | `/services/mobile-apps` |
 | Medium | ai automation small business australia · ai chatbot for website australia | `/services/ai-automation` |
 | Medium | website hosting melbourne · website maintenance melbourne · website care plan · take over website from developer | `/services/hosting-care` |
-| Medium | aws consultant melbourne · aws cost optimisation small business · aws migration small business | new page: `/services/aws` (Hassan's ex-AWS background is a strong, specific differentiator) |
+| Medium | aws consultant melbourne · aws cost optimisation small business · aws migration small business | new page: `/services/aws` (Hassan's AWS background is a strong, specific differentiator) |
 | Content | how much does a website cost in australia · how much does an app cost australia · custom software cost australia | guides (see Part 5) |
 
 ### Industry pages (only once you have something real to say)
@@ -120,7 +120,7 @@ AI engines pull short, self-contained passages. On every service page and guide:
 2. **Question-style H2s** that match how people ask AI ("How long does a Microsoft 365 migration take?").
 3. **Specific facts and numbers:** prices in AUD, timeframes, named standards (Essential Eight, Privacy Act 1988, APPs, Notifiable Data Breaches scheme). Vague copy doesn't get cited.
 4. **Tables and lists** for comparisons and steps.
-5. **A named author with credentials** on every guide. "Hassan Sheikh, AWS Certified Security – Specialty, former AWS Solutions Architect" is exactly the expertise and trust signal (Google's E-E-A-T) that both Google and AI engines reward.
+5. **A named author with credentials** on every guide. "Hassan Sheikh, AWS Certified Security – Specialty, AWS Solutions Architect" is exactly the expertise and trust signal (Google's E-E-A-T) that both Google and AI engines reward.
 6. **A visible "last updated" date.** Review quarterly, since AI engines favour fresh content.
 
 ### Content pillars and first 12 guides
@@ -161,7 +161,7 @@ AI engines recommend businesses that *other sources* mention. Priorities:
 3. **LinkedIn:** both founders posting weekly (short practical tips from the guides). LinkedIn content is widely indexed and cited.
 4. **Communities:** answer questions properly (not spam) on r/AusFinance, r/melbourne, r/smallbusiness, Whirlpool Forums and Australian small business Facebook groups. Reddit is one of the most-cited sources in AI answers.
 5. **Local partnerships and backlinks:** accountants, bookkeepers, business coaches and co-working spaces who refer clients. Swap guest articles. Business associations: Business Victoria events, local chambers of commerce, Council for Small Business Organisations Australia (COSBOA) member groups.
-6. **PR angles:** "ex-AWS architect offers free cyber health checks to Melbourne small businesses" for local media (e.g. Leader community news, SmartCompany, Dynamic Business).
+6. **PR angles:** "AWS architect offers free cyber health checks to Melbourne small businesses" for local media (e.g. Leader community news, SmartCompany, Dynamic Business).
 7. **Free tools that earn links:** an Essential Eight self-assessment quiz, or a website cost calculator.
 
 ---

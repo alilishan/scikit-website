@@ -79,7 +79,7 @@ Reported market pricing: **$5k–$200k+**, with most mid-market projects at $12k
 
 ## Where Scikit can stand out
 
-1. **Software and security under one roof.** Nobody in section 1 leads with ex-AWS security credentials. Nobody in section 4 builds software. Make this the headline everywhere.
+1. **Software and security under one roof.** Nobody in section 1 leads with AWS security credentials. Nobody in section 4 builds software. Make this the headline everywhere.
 2. **Founder-led and senior.** Blue Frog and Dcode also use this. We back it up with named employers (AWS, Metro Trains, Powercor).
 3. **Published prices.** Only Melbit and VisualWeb do this among the firms reviewed. It's a real trust signal, so keep it.
 4. **AI with guardrails.** AI agencies sell on speed. We can sell on *safe* AI (privacy, guardrails, Australian hosting), which suits clinics, legal and accounting firms.
