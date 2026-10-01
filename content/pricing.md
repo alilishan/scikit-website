@@ -55,9 +55,9 @@ City or region · 25 keywords · 2 articles a month · AI search tracking · mon
 
 ## Hosting & Care
 
-**Essentials: $99 / month:** hosting, updates, backups, 30 min of changes
-**Business: $249 / month:** plus security scanning, SEO health report, 2 hrs of changes
-**Complete: $599 / month:** plus Microsoft 365 admin, security checks, 5 hrs of support
+**Essentials: from $99 / month:** hosting, updates, backups, 30 min of changes
+**Business: from $249 / month:** plus security scanning, SEO health report, 2 hrs of changes
+**Complete: from $599 / month:** plus Microsoft 365 admin, security checks, 5 hrs of support
 
 ---
 

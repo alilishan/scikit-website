@@ -306,9 +306,9 @@ export const services: Service[] = [
     ],
     plansTitle: "Plans",
     plans: [
-      { name: "Essentials", price: "$99", suffix: "/ month", desc: "Hosting, updates, SSL, uptime monitoring and daily backups, plus 30 minutes of changes a month. Email support, next business day." },
-      { name: "Business", price: "$249", suffix: "/ month", popular: true, desc: "Everything in Essentials, plus security monitoring, malware scanning, a monthly speed and SEO report, and 2 hours of changes. Same-day support." },
-      { name: "Complete", price: "$599", suffix: "/ month", desc: "Everything in Business, plus Microsoft 365 / Google Workspace admin, a quarterly Essential Eight check and 5 hours of support. Phone support." },
+      { name: "Essentials", prefix: "from", price: "$99", suffix: "/ month", desc: "Hosting, updates, SSL, uptime monitoring and daily backups, plus 30 minutes of changes a month. Email support, next business day." },
+      { name: "Business", prefix: "from", price: "$249", suffix: "/ month", popular: true, desc: "Everything in Essentials, plus security monitoring, malware scanning, a monthly speed and SEO report, and 2 hours of changes. Same-day support." },
+      { name: "Complete", prefix: "from", price: "$599", suffix: "/ month", desc: "Everything in Business, plus Microsoft 365 / Google Workspace admin, a quarterly Essential Eight check and 5 hours of support. Phone support." },
     ],
     cards: [
       { title: "Site built by someone else?", body: "We take over existing websites. We start with a takeover audit (from $450 + GST): we get your logins back into your name, check security and backups, and document what's there." },

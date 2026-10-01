@@ -5,7 +5,7 @@ Status: Draft for review
 
 ## Purpose
 
-The website offers a "Free Website & SEO Audit": a prospect sends their URL and gets a short video walkthrough plus a one-page report within 3 business days. This tool produces that one-page report.
+The website offers a "Free Website & SEO Audit": a prospect sends their URL and gets a one-page report within 3 business days. This tool produces that one-page report.
 
 It is an internal command-line tool that only Lishan runs, on Lishan's Mac. It is **not** part of the website. The website keeps collecting the lead through the existing contact form; the audit is run by hand afterwards.
 
@@ -166,7 +166,7 @@ Sections, top to bottom:
 7. **05 The three things we'd fix first**: numbered, with an orange rail on the left.
 8. Footer: scikit.com.au, info@scikit.com.au, "Book a call".
 
-A section whose check failed or was skipped shows "Not checked this time — we'll cover it in your video walkthrough." Content is kept to one page by capping list lengths from `rules.yaml`, and the rendered HTML is checked to fit A4 (see Testing).
+A section whose check failed or was skipped shows "Not checked this time. Ask us and we'll go through it with you." Content is kept to one page by capping list lengths from `rules.yaml`, and the rendered HTML is checked to fit A4 (see Testing).
 
 ## Error handling
 
@@ -185,6 +185,5 @@ A section whose check failed or was skipped shows "Not checked this time — we'
 
 - Any website integration (form, API route, public report page).
 - Sharing the audit log with Hassan (would need a hosted DB).
-- Recording the video walkthrough.
 - Auditing pages other than the homepage.
 - Emailing the report automatically.

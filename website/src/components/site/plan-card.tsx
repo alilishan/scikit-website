@@ -54,11 +54,12 @@ export function PlanCard({ name, price, prefix, suffix, desc, features, popular 
 }
 
 /** Smaller price card used for SEO and Hosting & Care plans on the pricing page. */
-export function PriceCard({ name, price, unit, desc, className }: { name: string; price: string; unit?: string; desc: string; className?: string }) {
+export function PriceCard({ name, price, prefix, unit, desc, className }: { name: string; price: string; prefix?: string; unit?: string; desc: string; className?: string }) {
   return (
     <div className={cn("flex h-full flex-col gap-3 rounded-xl bg-white p-[26px] shadow-card", className)}>
       <h3 className="m-0 text-[15px] font-semibold">{name}</h3>
       <div className="display text-[32px] tracking-[-0.03em]">
+        {prefix && <span className="font-sans text-sm font-normal text-label">{prefix} </span>}
         {price}
         {unit && <span className="font-sans text-sm font-normal text-label"> {unit}</span>}
       </div>

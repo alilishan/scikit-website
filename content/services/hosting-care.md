@@ -16,21 +16,21 @@ Secure hosting, daily backups, updates and monitoring for your website, looked a
 
 *Monthly, ex GST. No lock-in. Cancel with 30 days' notice.*
 
-**Essentials: $99 / month**
+**Essentials: from $99 / month**
 - Fast, secure hosting
 - Updates, SSL and uptime monitoring
 - Daily backups, kept for 30 days
 - 30 minutes of changes per month
 - Email support, next business day
 
-**Business: $249 / month** *(most popular)*
+**Business: from $249 / month** *(most popular)*
 - Everything in Essentials
 - Security monitoring and malware scanning
 - Monthly speed and SEO health report
 - 2 hours of changes per month
 - Same-business-day support
 
-**Complete: $599 / month**
+**Complete: from $599 / month**
 - Everything in Business
 - Microsoft 365 / Google Workspace admin
 - Quarterly security check (Essential Eight)

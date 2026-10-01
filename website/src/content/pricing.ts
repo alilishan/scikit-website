@@ -31,19 +31,19 @@ export const webPlans: Plan[] = [
   },
 ];
 
-export type SimplePlan = { name: string; price: string; unit: string; desc: string };
+export type SimplePlan = { name: string; prefix?: string; price: string; unit: string; desc: string };
 
 export const seoPlans: SimplePlan[] = [
-  { name: "Free Website & SEO Audit", price: "$0", unit: "", desc: "Video walkthrough and a one-page report within 3 business days." },
+  { name: "Free Website & SEO Audit", price: "$0", unit: "", desc: "A one-page report within 3 business days." },
   { name: "Local SEO Setup", price: "$1,500", unit: "one-off, from", desc: "Google Business Profile, citations, schema and on-page fixes." },
   { name: "Local", price: "$790", unit: "/ month", desc: "1 area · 10 keywords · 1 article a month · monthly report" },
   { name: "Growth", price: "$1,490", unit: "/ month", desc: "City or region · 25 keywords · 2 articles a month · AI search tracking · monthly review call" },
 ];
 
 export const carePlans: SimplePlan[] = [
-  { name: "Essentials", price: "$99", unit: "/ month", desc: "Hosting, updates, backups, 30 min of changes." },
-  { name: "Business", price: "$249", unit: "/ month", desc: "Plus security scanning, SEO health report, 2 hrs of changes." },
-  { name: "Complete", price: "$599", unit: "/ month", desc: "Plus Microsoft 365 admin, security checks, 5 hrs of support." },
+  { name: "Essentials", prefix: "from", price: "$99", unit: "/ month", desc: "Hosting, updates, backups, 30 min of changes." },
+  { name: "Business", prefix: "from", price: "$249", unit: "/ month", desc: "Plus security scanning, SEO health report, 2 hrs of changes." },
+  { name: "Complete", prefix: "from", price: "$599", unit: "/ month", desc: "Plus Microsoft 365 admin, security checks, 5 hrs of support." },
 ];
 
 export const otherPrices = [

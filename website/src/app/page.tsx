@@ -157,8 +157,8 @@ function Offer() {
             Free Website &amp; SEO Audit
           </h2>
           <p className="m-0 max-w-[460px] text-[17px] leading-[1.6] text-on-dark">
-            Send us your website and we&apos;ll show you exactly why it isn&apos;t bringing in more work. You get a short
-            video walkthrough and a one-page report within 3 business days.
+            Send us your website and we&apos;ll show you exactly why it isn&apos;t bringing in more work. You get a one-page
+            report within 3 business days.
           </p>
           <div className="flex">
             <Link href="/contact" className={buttonVariants({ variant: "accent", size: "xl" })}>

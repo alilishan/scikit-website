@@ -24,7 +24,7 @@
 {%- endmacro %}
 {% macro chip(grade) -%}<span class="chip c-{{ grade }}">{{ grade_label[grade] }}</span>{%- endmacro %}
 {% macro mark(grade) -%}<span class="mark m-{{ grade }}" aria-hidden="true">{% if grade == "pass" %}✓{% elif grade == "fail" %}✕{% elif grade == "info" %}?{% else %}!{% endif %}</span>{%- endmacro %}
-{% macro not_checked() -%}<p class="not-checked">Not checked this time. We'll cover it in your video walkthrough.</p>{%- endmacro %}
+{% macro not_checked() -%}<p class="not-checked">Not checked this time. Ask us and we'll go through it with you.</p>{%- endmacro %}
 {% macro note(section) -%}{% if notes[section] %}<p class="note">{{ notes[section] }}</p>{% endif %}{%- endmacro %}
 
 <main class="page">

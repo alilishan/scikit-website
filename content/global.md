@@ -52,7 +52,7 @@ Tell us about your business. We'll send a fixed-price quote within 2 business da
 
 ### Free Website & SEO Audit
 
-We'll show you exactly why your website isn't bringing in more work: speed, rankings, Google Business Profile and security. You get a short video walkthrough and a one-page report within 3 business days.
+We'll show you exactly why your website isn't bringing in more work: speed, rankings, Google Business Profile and security. You get a one-page report within 3 business days.
 
 **Button:** Get my free audit
 

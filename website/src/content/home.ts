@@ -12,7 +12,7 @@ export const steps = [
     title: "Audit",
     short: "We review your current site, your competitors and what your customers search for.",
     long: "We review your current website, your competitors and what your customers search for on Google. You get a free audit with the three things we'd fix first.",
-    get: "a video walkthrough and a one-page report.",
+    get: "a one-page report with the three things we'd fix first.",
   },
   {
     num: "02",
@@ -50,7 +50,7 @@ export const people = [
 ];
 
 export const promises = [
-  { t: "Fixed prices.", d: "If we underestimate, that's on us." },
+  { t: "Honest pricing.", d: "A written quote up front, and we stick to it." },
   { t: "You own everything.", d: "Domain, hosting, code and content." },
   { t: "Straight answers.", d: "If you don't need something, we'll say so." },
   { t: "Fast replies.", d: "Within one business day." },

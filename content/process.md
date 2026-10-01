@@ -14,7 +14,7 @@ Four steps from first chat to a website that brings in work. Fixed prices, weekl
 
 We review your current website, your competitors and what your customers search for on Google. You get a free audit with the three things we'd fix first.
 
-*You get:* a video walkthrough and a one-page report.
+*You get:* a one-page report with the three things we'd fix first.
 
 ## 02. Plan
 
@@ -38,7 +38,7 @@ We go live, submit your site to Google, set up analytics and hand over every log
 
 ## Our promises
 
-- **Fixed prices.** If we underestimate, that's on us.
+- **Honest pricing.** A written quote up front, and we stick to it.
 - **You own everything.** Domain, hosting, code and content.
 - **Straight answers.** If you don't need something, we'll say so.
 - **Fast replies.** Within one business day.

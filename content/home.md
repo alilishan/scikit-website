@@ -32,7 +32,7 @@ AWS Solutions Architect · AWS Security Specialty · Microsoft · Cisco CCNA · 
 
 ## Free Website & SEO Audit
 
-Send us your website and we'll show you exactly why it isn't bringing in more work. You get a short video walkthrough and a one-page report within 3 business days.
+Send us your website and we'll show you exactly why it isn't bringing in more work. You get a one-page report within 3 business days.
 
 - Speed and mobile check (Google Core Web Vitals)
 - Where you rank for your top 5 search terms, and who's beating you
