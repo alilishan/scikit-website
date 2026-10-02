@@ -27,7 +27,8 @@ const mainNav = [
 ];
 const endNav = [
   { label: "Pricing", href: "/pricing" },
-  { label: "Process", href: "/process" },
+  // PROCESS PAGE HIDDEN (Oct 2026). To restore, see website/CLAUDE.md.
+  // { label: "Process", href: "/process" },
   { label: "FAQ", href: "/faq" },
 ];
 const moreLinks = moreServices.map((s) => ({ label: s.title, href: `/services/${s.slug}` }));

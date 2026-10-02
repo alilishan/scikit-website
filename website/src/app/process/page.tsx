@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { CtaBlock } from "@/components/site/cta-block";
 import { Eyebrow, PageTitle, Stop } from "@/components/site/primitives";
 import { promises, steps } from "@/content/home";
@@ -13,7 +14,13 @@ export const metadata: Metadata = pageMeta({
   path: "/process",
 });
 
+// PROCESS PAGE HIDDEN (Oct 2026): /process returns 404 while this is false.
+// The page code below is kept as is. To bring it back, set this to true and
+// re-enable the commented-out /process links (search the code for "PROCESS PAGE HIDDEN").
+const PROCESS_PAGE_ENABLED = false;
+
 export default function ProcessPage() {
+  if (!PROCESS_PAGE_ENABLED) notFound();
   return (
     <>
       <Reveal onLoad className="container-site flex flex-col gap-5 pt-20 pb-12">

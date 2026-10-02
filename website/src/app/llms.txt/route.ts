@@ -41,7 +41,8 @@ export function GET() {
     ...faqGroups.flatMap((g) => g.items.map((f) => `- ${f.q} ${f.a}`)),
     "",
     "## Pages",
-    `- [Process](${u("/process")})`,
+    // PROCESS PAGE HIDDEN (Oct 2026). To restore, see website/CLAUDE.md.
+    // `- [Process](${u("/process")})`,
     `- [FAQ](${u("/faq")})`,
     `- [Privacy policy](${u("/privacy")})`,
   ];

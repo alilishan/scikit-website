@@ -256,7 +256,8 @@ function Process() {
             <Eyebrow>Process</Eyebrow>
             <SectionTitle>How We Work</SectionTitle>
           </div>
-          <TextLink href="/process">See full process <Arrow /></TextLink>
+          {/* PROCESS PAGE HIDDEN (Oct 2026). To restore, see website/CLAUDE.md.
+          <TextLink href="/process">See full process <Arrow /></TextLink> */}
         </Reveal>
         <ol className="auto-grid m-0 list-none gap-7 p-0 [--min:230px]">
           {steps.map((st, i) => (

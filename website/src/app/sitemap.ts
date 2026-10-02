@@ -3,7 +3,8 @@ import { services } from "@/content/services";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/services", "/pricing", "/process", "/faq", "/contact", "/privacy", "/terms"];
+  // PROCESS PAGE HIDDEN (Oct 2026). To restore, see website/CLAUDE.md. "/process" removed from this list.
+  const pages = ["", "/services", "/pricing", "/faq", "/contact", "/privacy", "/terms"];
   const now = new Date();
   return [
     ...pages.map((p) => ({

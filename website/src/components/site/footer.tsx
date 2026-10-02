@@ -29,7 +29,8 @@ export function SiteFooter() {
           </nav>
           <nav aria-label="Company" className="flex flex-col gap-0.5 text-sm">
             <div className={`${colTitle} pb-2`}>Company</div>
-            <Link href="/process" className="py-1 hover:text-orange">Process</Link>
+            {/* PROCESS PAGE HIDDEN (Oct 2026). To restore, see website/CLAUDE.md.
+            <Link href="/process" className="py-1 hover:text-orange">Process</Link> */}
             <Link href="/pricing" className="py-1 hover:text-orange">Pricing</Link>
             <Link href="/faq" className="py-1 hover:text-orange">FAQ</Link>
             <Link href="/contact" className="py-1 hover:text-orange">Contact</Link>
