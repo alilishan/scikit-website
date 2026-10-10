@@ -4,13 +4,21 @@
 
 const env = (value: string | undefined, fallback = "") => (value && value.trim() ? value.trim() : fallback);
 
+// Public contact addresses: one, or several separated by commas.
+const emails = env(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
+  .split(",")
+  .map((address) => address.trim())
+  .filter(Boolean);
+
 export const site = {
   name: "Scikit",
   url: env(process.env.NEXT_PUBLIC_SITE_URL, "https://www.scikit.com.au"),
   tagline: "Websites, software & cloud for Australian businesses.",
   description:
     "Scikit builds fast, secure websites that get found on Google, custom software that fits how you work, and the cloud systems that keep it all running, for Australian businesses.",
-  email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
+  // As displayed, e.g. "a@example.com, b@example.com"
+  email: emails.join(", "),
+  emails,
   phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE),
   // Digits only, with country code, e.g. "61400000000"
   whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER),
@@ -38,7 +46,7 @@ export const localityLine = [site.suburb, site.state, site.postcode].filter(Bool
 /** Full address on one line, e.g. "1 Example St, Melbourne VIC 3000". */
 export const addressLine = [site.street, localityLine].filter(Boolean).join(", ");
 
-export const emailHref = site.email ? `mailto:${site.email}` : "/contact";
+export const emailHref = emails.length ? `mailto:${emails.join(",")}` : "/contact";
 export const phoneHref = site.phone ? `tel:${site.phone.replace(/[^\d+]/g, "")}` : "/contact";
 // WhatsApp click-to-chat with a greeting already typed in. Empty when no number is set (the button is hidden).
 export const whatsappHref = site.whatsapp

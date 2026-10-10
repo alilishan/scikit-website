@@ -58,7 +58,7 @@ export async function sendEnquiry(_prev: EnquiryState, formData: FormData): Prom
 
   const mailer = getMailer();
   const to = mailTo();
-  if (!mailer || !to) {
+  if (!mailer || !to.length) {
     console.info("[enquiry] Email not configured (RESEND_API_KEY / CONTACT_TO_EMAIL). Enquiry received:\n" + text);
     return { status: "success" };
   }

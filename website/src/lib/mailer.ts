@@ -13,4 +13,9 @@ export function getMailer() {
 
 /** Sender address. Must be on a domain verified in Resend (scikit.com.au). */
 export const mailFrom = () => process.env.CONTACT_FROM_EMAIL || "info@scikit.com.au";
-export const mailTo = () => process.env.CONTACT_TO_EMAIL || process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
+/** Recipients. CONTACT_TO_EMAIL can hold several addresses separated by commas. */
+export const mailTo = () =>
+  (process.env.CONTACT_TO_EMAIL || process.env.NEXT_PUBLIC_CONTACT_EMAIL || "")
+    .split(",")
+    .map((address) => address.trim())
+    .filter(Boolean);

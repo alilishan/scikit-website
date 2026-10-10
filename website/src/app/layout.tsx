@@ -29,7 +29,7 @@ const organization = {
   url: site.url,
   logo: `${site.url}/logos/icon-dark.svg`,
   areaServed: { "@type": "Country", name: "Australia" },
-  ...(site.email && { email: site.email }),
+  ...(site.emails[0] && { email: site.emails[0] }),
   ...(site.phone && { telephone: site.phone }),
   address: {
     "@type": "PostalAddress",
